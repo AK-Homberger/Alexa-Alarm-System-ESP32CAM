@@ -1,7 +1,7 @@
 # Alexa integrated Alarm System
 This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501 PIR motion detection module.
 
-![Front](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Front.jpg)
+![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
 # Features
 - The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
