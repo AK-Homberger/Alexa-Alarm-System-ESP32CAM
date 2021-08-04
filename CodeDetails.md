@@ -216,14 +216,6 @@ The effect is, that you see strange false detections from time to time without a
 
 Here you can find a long discussion regarding the problem: https://www.letscontrolit.com/forum/viewtopic.php?t=671
 
-I tried several countermeasures and at least for my implementation, with the housing from Thingiverse, the solution was the fixed setting to WiFi mode 802.11g.
-
-The setting is implemented in the **connectWifi()** function:
-```
-wifi_set_phy_mode(PHY_MODE_11G);  // This shall reduce interference of WLAN with PIR sensor
-//system_phy_set_max_tpw(32);     // Reduce WLAN power further if necessary
-```
-If that is not sufficient, you can try to reduce the WLAN send power even more.
-
+A ggod solution for the ESP32CAM is an ferrite ring for the cabling between the ESP32CAM and the SR501.
 
 ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
