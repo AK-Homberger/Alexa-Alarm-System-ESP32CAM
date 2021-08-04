@@ -1,6 +1,7 @@
 # Alexa integrated Alarm System (with ESP32CAM)
 This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501 PIR motion detection module.
 
+![connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.png)
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
 # Features
@@ -45,11 +46,8 @@ That's all.
 
 You can either solder the wires or you can use jumper wires instead. Power is provided via the 5 Volt pin of ESP32CAM.
 
-![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
+![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.jpg)
 
-![Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Back.jpg)
-
-![Front](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Front.jpg)
 
 # Software
 
