@@ -50,7 +50,7 @@ To minimise interference of WLAN with the PIR motion detcection, the tree wires 
 
 # Software
 
-The [software](https://github.com/AK-Homberger/Alexa-Alarm-System/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested).
+The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested).
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
@@ -166,7 +166,7 @@ Use the JSON variant (short response). But all three variants will work.
 In the Alexa APP you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 20 seconds alarm delay until the alarm is raised.
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
-![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.PNG)
+![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.png)
 
 # Web Interface
 In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE.
@@ -203,7 +203,7 @@ If you still got false positives, you should have a look to [WLAN interference](
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
 
 ## Root CA Certificate
-For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/de6f3e61684926d26a0e4989af5788e650d2d3ac/AlexaFaceDetectionESP32Cam/AlexaFaceDetectionESP32Cam.ino#L54) is stored in the code (certificate.h). 
+For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaIntruderAlert/certificate.h) is stored in the code (certificate.h). 
 
 The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
 
