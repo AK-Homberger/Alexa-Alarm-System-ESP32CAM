@@ -50,7 +50,7 @@ To minimise interference of WLAN with the PIR motion detcection, the tree wires 
 
 # Software
 
-The [software](https://github.com/AK-Homberger/Alexa-Alarm-System/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32CAM, the ESP32 board support has to be installed in the IDE.
+The [software](https://github.com/AK-Homberger/Alexa-Alarm-System/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested).
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
