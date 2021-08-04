@@ -12,6 +12,8 @@ This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
 
+The alarm system is mainly created for Alexa integration, but it works also without Alaxa. You can control it then via the web interface.
+
 # Usage
 Just place the alarm module somewhere in your home where it can detect suspicious movements with the infrared PIR sensor. The module has to be powered with 5 Volt.
 
@@ -91,8 +93,6 @@ To use the sketch, just change the relevant settings in the code:
 #define SILENT_ALARM Off                // On means no internal LED blink and no Alexa notification sound
 ```
 You can switch individually the notification methods on or off. Phone calls are only possible with special kind of routers (Fritzbox from AVM). You can also switch silent alarm on. That means, no internal LED is blinking and no Alexa notification sound is played.
-
-The alarm system is mainly created for Alexa integration, but it works also without Alaxa. You can control it then via the web interface.
 
 ## WLAN Settings
 The WiFi credentials has to be set according to your local needs.
