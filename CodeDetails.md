@@ -40,7 +40,7 @@ void Handle_PIR_Sensor(void) {
   bool PIR_On;
 
   PIR_On = digitalRead(PIR_SENSOR_PIN);   // Read PIR sensor state
-  if (!SILENT_ALARM) digitalWrite(D4, !PIR_On); // Show state on internal LED if not SILENT_ALARM
+  if (!SILENT_ALARM) digitalWrite(LED_BUILTIN, PIR_On); // Show state on internal LED if not SILENT_ALARM
 
   if (alarm_state) return;                // An alarm is currently active, return
 
@@ -65,12 +65,15 @@ void Handle_PIR_Sensor(void) {
     case WAIT_SECOND: // Check for double movement: State is WAIT_SECOND and PIR sensor high within 30 seconds.
       if (PIR_On && millis() < double_time + 30000) {
 
+        capturePhotoSaveSpiffs();       // Store picture
+
         if (pir_sensor_active) {        // Sensor is active and double move detected
           alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
           alarm_state = true;           // Set alarm status to true
           if (!SILENT_ALARM && USE_ALEXA) ReqURL(1);   // Play ping sound on Alexa if available and not SILENT_ALARM
         }
         Serial.println("Double movement detected.");
+        single_counter--;
         double_counter++;
         g_state = WAIT_LOW2;
       } else if (millis() >= double_time + 30000 ) { // No second movement. Set state to WAIT_FIRST
