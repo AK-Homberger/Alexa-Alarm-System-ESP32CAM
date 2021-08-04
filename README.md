@@ -68,9 +68,18 @@ The following external libraries are used:
 
 Most external libraries can be installed via the IDE Library Manager. If not possible, install as ZIP file downloaded from GitHub (green button "Code").
 
-After uploading the sketch to the ESP32CAM via an FTDI USB to serial adapter, you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
+You need an external (FTDI) programmer to install the sketch on the ESP32-CAM module. 
+
+![FTDI](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/ESP32-CAM-FTDI.png)
+
+For programming you have to connect IO0 to GND, RX/TX (crossed) and 5V/GND. Then press the "boot" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
+
+For normal start open IO0 from GND and press "boot" again.
 
 After the initial sketch upload via USB, you can also do "Over the Air" updates via WLAN. The OTA device name is set to "IntruderAlertCam".
+
+After uploading the sketch to the ESP32CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
+
 
 ## Settings
 To use the sketch, just change the relevant settings in the code:
