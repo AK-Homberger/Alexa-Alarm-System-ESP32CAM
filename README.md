@@ -28,22 +28,20 @@ The alert system can also be controlled with a [web interface](https://github.co
 
 # Hardware
 
-The whole alarm system consists of two components only. The ESP32CAM and the HC-SR501 PIR sensor (less then 10 Euro).
+The whole alarm system consists of two components only. The ESP32CAM and the HC-SR501 PIR sensor (less then 15 Euro).
 See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/README.md#parts) section for order details.
 
 The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires:
 
 - 5V to 5V
 - GND to GND
-- GPIO 2 to signal output of HC-SR501
+- GPIO2 to signal output of HC-SR501
 
 That's all. 
 
 You can either solder the wires or you can use jumper wires instead. Power is provided via the 5 Volt pin of ESP32CAM.
 
 ![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Connected2.jpg)
-
-A nice 3D print housing is available at Thingiverse: www.thingiverse.com/thing:2955991
 
 ![Back](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Housing-Back.jpg)
 
