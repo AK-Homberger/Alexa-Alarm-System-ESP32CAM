@@ -23,7 +23,7 @@ To avoid false alarms, the detector is programmed to wait for two detected motio
 
 If a (double)motion is detected while the detector is activated, then a alarm notification is done (phone call, e-mail). You can also trigger Alexa routines in case of an alarm. You can for example let Alexa play an alarm sound, speak a text or switch on/off lights. It's totally up to you.
 
-A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via VPN connection from phone to fritzbox) can be used to see the current video stream from camera.
+A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via [VPN](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) connection from phone to fritzbox) can be used to see the current video stream from camera.
 
 To allow disarming of the detector when coming back home, there is an alarm delay time of 15 seconds defined. During this 15 seconds you can switch the module off with an "Alexa, Alert Off" command.
 
