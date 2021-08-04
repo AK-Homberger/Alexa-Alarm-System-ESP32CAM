@@ -46,8 +46,9 @@ That's all.
 
 You can either solder the wires or you can use jumper wires instead. Power is provided via the 5 Volt pin of ESP32CAM.
 
-![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.jpg)
+![Connected2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
 
+To minimise interference of WLAN with the PIR motion detcection, the tree wires to the SR501 module are moved throgh the ferrite ring. 
 
 # Software
 
