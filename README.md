@@ -54,15 +54,19 @@ To minimise interference of WLAN with the PIR motion detcection, the tree wires 
 
 The [software](https://github.com/AK-Homberger/Alexa-Alarm-System/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32CAM, the ESP32 board support has to be installed in the IDE.
 
+In the IDE you have to select:
+- Board: ESP32 Wrover Module
+- Partition scheme: Default 4MB with spiffs...
+
 The following external libraries are used:
+- ArduinoWebsockets (https://github.com/gilmaimon/ArduinoWebsockets)
+- EMailSender       (https://github.com/xreef/EMailSender)
+- Espalexa          (https://github.com/Aircoookie/Espalexa)
+- NTPClient         (https://github.com/arduino-libraries/NTPClient)
+- ArduinoJson       (https://arduinojson.org/v6/doc/)
+- TR-064            (https://github.com/Aypac/Arduino-TR-064-SOAP-Library)
 
-- EMailSender   (https://github.com/xreef/EMailSender)
-- Espalexa      (https://github.com/Aircoookie/Espalexa)
-- NTPClient     (https://github.com/arduino-libraries/NTPClient)
-- ArduinoJson   (https://arduinojson.org/v6/doc/)
-- TR-064        (https://github.com/Aypac/Arduino-TR-064-SOAP-Library)
-
-Most external libraries can be installed via the Library Manager. If not possible, install as ZIP file downloaded from GitHub (green button "Code").
+Most external libraries can be installed via the IDE Library Manager. If not possible, install as ZIP file downloaded from GitHub (green button "Code").
 
 After uploading the sketch to the ESP32CAM via an FTDI USB to serial adapter, you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
 
