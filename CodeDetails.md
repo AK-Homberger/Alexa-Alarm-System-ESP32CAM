@@ -226,4 +226,4 @@ wifi_set_phy_mode(PHY_MODE_11G);  // This shall reduce interference of WLAN with
 If that is not sufficient, you can try to reduce the WLAN send power even more.
 
 
-## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/README.md)
+## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
