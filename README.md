@@ -1,7 +1,7 @@
 # Alexa integrated Alarm System
 This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501 PIR motion detection module.
 
-![Front](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Housing-Front.jpg)
+![Front](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Front.jpg)
 
 # Features
 - The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
@@ -24,12 +24,12 @@ To allow disarming of the detector when coming back home, there is an alarm dela
 
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
 
-The alert system can also be controlled with a [web interface](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/README.md#web-interface) with (IP-Address:90).
+The alert system can also be controlled with a [web interface](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#web-interface) with (IP-Address:90).
 
 # Hardware
 
 The whole alarm system consists of two components only. The ESP32CAM and the HC-SR501 PIR sensor (less then 15 Euro).
-See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/README.md#parts) section for order details.
+See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
 
 The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires:
 
@@ -43,11 +43,11 @@ That's all.
 
 You can either solder the wires or you can use jumper wires instead. Power is provided via the 5 Volt pin of ESP32CAM.
 
-![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Connected2.jpg)
+![Connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
 
-![Back](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Housing-Back.jpg)
+![Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Back.jpg)
 
-![Front](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Housing-Front.jpg)
+![Front](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing-Front.jpg)
 
 # Software
 
@@ -137,7 +137,7 @@ To start Alexa routines, you have to register on the www.virtualsmarthome.xyz we
 
 Then define two URL triggers as shown in the screenshot:
 
-![VSH](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/VSH-URL-Trigger.png)
+![VSH](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/VSH-URL-Trigger.png)
 
 The URLs have to be copied to the sketch below.
 
@@ -152,13 +152,13 @@ Use the JSON variant (short response). But all three variants will work.
 
 In the Alexa APP you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 20 seconds alarm delay until the alarm is raised.
 
-![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Alexa1.png)
-![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/Alexa2.PNG)
+![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
+![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.PNG)
 
 # Web Interface
 In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE.
 
-![Web](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/Pictures/web-interface.png)
+![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
 You can use On/Off commands to arm/disarm the system. When armed with the web interface, the system is directly activated without an arm delay time.
 
@@ -195,7 +195,7 @@ The certificate is used to authenticate the identity of the web server. **The ce
 To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
 
 # Code Details
-If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/CodeDetails.md) further.
+If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
 
 # Parts
 - ESP32CAM [Link](https://www.reichelt.de/index.html?ACTION=446&LA=2&nbc=1&q=esp32cam)
