@@ -33,10 +33,11 @@ See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/README.
 
 The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires:
 
-| ESP | SR501 |
-|  5V | VCC |
-| GND | GND |
-| GPIO2 | OUT |
+| ESP32CAM | SR501 |
+|----------|-------|
+| 5V       | VCC   |
+| GND      | GND   |
+| GPIO2    | OUT   |
 
 That's all. 
 
