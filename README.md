@@ -187,20 +187,11 @@ If you still got false positives, you should have a look to [WLAN interference](
 
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
 
-# TLS Fingerprints
+## Root CA Certificate
+For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/de6f3e61684926d26a0e4989af5788e650d2d3ac/AlexaFaceDetectionESP32Cam/AlexaFaceDetectionESP32Cam.ino#L54) is stored in the code. 
+The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
 
-To improve security against man-in-the-middle-attacks, the sketch is checking the TLS fingerprint for the www.virtualsmarthome.xyz web site. The fingerprint is connected to the certificate of the web site. If the certificate is renewed/changed then also a new fingerprint for the site has to be retrieved and stored in the sketch. 
-
-A full certificate check as with the ESP32 is currently not supported with the ESP8266.
-
-The fingerprint is shown together with the other certificate details within the browser. The current certificate will expire in September 2021.
-
-```
-// Fingerprint for www.virtualsmarthome.xyz
-const char* vsh_fingerprint PROGMEM = "0F EA 45 74 82 2F 25 2E 70 0F 63 1C E4 43 6E 7E BA 8C A3 EF";
-```
-
-There is also a fingerprint stored for gmail. But currently the e-mail library is not supporting fingerprint checks.
+To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
 
 # Code Details
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/CodeDetails.md) further.
