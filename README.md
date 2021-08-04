@@ -6,13 +6,13 @@ This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501
 # Features
 - The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
 - The www.virtualsmarthome.xyz URL trigger service is used to start Alexa routines in case of an alarm
-- Activation status and video stream can be controlled via web interface
-- Can call phones via [fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
-- Can send e-mail notifications with picture via gmail account
+- A web interface can be used to see the video stream and control the activation status
+- It can call phones via [fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
+- It can send e-mail notifications with picture via gmail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
 
 # Usage
-Just place the alarm module somewhere in your home where it can detect suspicious movements with the infrared PIR sensor. The module has to be powered via the USB connector.
+Just place the alarm module somewhere in your home where it can detect suspicious movements with the infrared PIR sensor. The module has to be powered with 5 Volt.
 
 Then activate the detector with an Alexa voice command: "Alexa, Alert On". There is a 60 seconds arm delay time before the detector is activated. This shall allow leaving the home before the motion detector is activated. The device name can be changed in the  settings section. Set the device name to something special, to ensure an intruder is not guessing the device name to switch off the alarm.
 
@@ -20,7 +20,7 @@ To avoid false alarms, the detector is programmed to wait for two detected motio
 
 If a (double)motion is detected while the detector is activated, then a alarm notification is done (phone call, e-mail). You can also trigger Alexa routines in case of an alarm. You can for example let Alexa play an alarm sound, speak a text or switch on/off lights. It's totally up to you.
 
-A picture at the time of the second movement trigger time is sent as e-mail attachment.
+A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via VPN connection from phone to fritzbox) can be used to see the current video stream from camera.
 
 To allow disarming of the detector when coming back home, there is an alarm delay time of 20 seconds defined. During this 20 seconds you can switch the module off with an "Alexa, Alert Off" command.
 
