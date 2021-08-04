@@ -20,6 +20,8 @@ To avoid false alarms, the detector is programmed to wait for two detected motio
 
 If a (double)motion is detected while the detector is activated, then a alarm notification is done (phone call, e-mail). You can also trigger Alexa routines in case of an alarm. You can for example let Alexa play an alarm sound, speak a text or switch on/off lights. It's totally up to you.
 
+A picture at the time of the second movement trigger time is sent as e-mail attachment.
+
 To allow disarming of the detector when coming back home, there is an alarm delay time of 20 seconds defined. During this 20 seconds you can switch the module off with an "Alexa, Alert Off" command.
 
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
@@ -160,7 +162,7 @@ In addition to Alexa commands, the system can be controlled also with a web inte
 
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
-The current camera view is shown in the browser. In case of an alarm you can check who is moving in the room.
+The current camera view is shown in the browser. In case of an alarm, you can check who is moving in the room.
 
 You can use On/Off commands to arm/disarm the system. When armed with the web interface, the system is directly activated without an arm delay time.
 
@@ -174,7 +176,7 @@ Free Heap: 27728
 Single=6 Double=2
 Max FPS=10
 ```
-The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting both values to zero.
+The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
 
 To avoid false alarms, the software always waits for two PIR trigger events within 30 seconds.
 
