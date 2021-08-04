@@ -160,6 +160,8 @@ In addition to Alexa commands, the system can be controlled also with a web inte
 
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
+The current camera view is shown in the browser. In case of an alarm you can check who is moving in the room.
+
 You can use On/Off commands to arm/disarm the system. When armed with the web interface, the system is directly activated without an arm delay time.
 
 The "Active (0)" state also shows the trigger counts for single PIR triggers. 
