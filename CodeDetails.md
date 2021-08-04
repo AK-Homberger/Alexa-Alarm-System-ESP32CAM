@@ -1,7 +1,7 @@
 # Code Details
 
 ## Web Interface
-The web interface is created with HTML and Javascript(AJAX). The HTML/CSS and Javascript code is stored in the [index.h](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/AlexaIntruderAlert/index.h) file and can be easily changed.
+The web interface is created with HTML and Javascript(AJAX). The HTML/CSS and Javascript code is stored in the [index.h](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaIntruderAlert/index.h) file and can be easily changed.
 
 In the main sketch the web requests are handled with the following functions:
 
@@ -12,7 +12,7 @@ In the main sketch the web requests are handled with the following functions:
   server.on("/off", handleOff);           // Handle Off button
   server.on("/uptime", handleUptime);     // Handle uptime request
 ````
-The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/f78259da06e159be662db124a53efa886676962c/AlexaIntruderAlert/AlexaIntruderAlert.ino#L269) are called when an URL is requested from the web client.
+The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/b849df58299e61e71e646e5ed7547d1ba0f17cba/AlexaIntruderAlert/AlexaIntruderAlert.ino#L169) are called when an URL is requested from the web client.
 
 The status data is passed to the web client in the **handleGetData()** function (as JSON data).
 
@@ -177,37 +177,22 @@ if (CALL_PHONE) connection.init(); // TR-064 init.
 Sending mails with the library is stright forward:
 
 ```
-  EMailSender::EMailMessage message;          // Create email message
+  EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
+  fileDescriptor[0].filename = "photo.jpg";
+  fileDescriptor[0].url = FILE_PHOTO;
+  fileDescriptor[0].mime = "image/jpg";
+  fileDescriptor[0].encode64 = true;
+  fileDescriptor[0].storageType = EMailSender::EMAIL_STORAGE_TYPE_SPIFFS;
+
+  EMailSender::Attachments attachs = {1, fileDescriptor};
+
+  EMailSender::EMailMessage message;    // Create email message
   message.subject = "Intruder Alert!";
   message.message = time_str;
-  EMailSender::Response resp = emailSend.send(M_DEST, message);  // Send email
+
+  EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
 ```
-Simply create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail address.
-
-## HTTPS Request to URL Trigger Service
-With the function **ReqURL(i)** one of both defined URL triggers are started (i=0 or i=1).
-For security reasons, the service requires a HTTPS connection. To check the identity of the web server, we also check the fingerprint of the server in the code.
-
-Only if the fingerprint check is positive, we will call the URL.
-
-```
-void ReqURL(int i) {
-
-  HTTPClient https;   // Create https client object
-
-  client.setFingerprint(vsh_fingerprint);     // Set Virtualsmartome TLS fingerprint
-
-  if (!client.connect("www.virtualsmarthome.xyz", 443)) {     // Check fingerprint for web site
-    Serial.println("Fingerprint does not match!");
-    return;
-  } else Serial.println("Fingerprint does match!");
-
-  if (https.begin(client, URL[i])) {  // Set HTTPS request for URL i
-
-    int httpCode = https.GET();       // Request URL
-```
-The remaining code in the function is just response checking.
-
+First create the attachment for the picture. And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail address.
 
 ## Interference of WiFi with PIR sensor
 The used PIR sensor HC-SR501 is in general a very reliable PIR sensor. But if it is used together with a WLAN device connected to the sensor, then there is a chance for an interference between the WLAN signal and the PIR detection.
