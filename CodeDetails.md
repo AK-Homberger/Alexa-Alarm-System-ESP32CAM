@@ -156,7 +156,7 @@ The Alexa device state is also maintained if the web interface is used:
  if (USE_ALEXA) device->setValue(0);   // Set Alexa state Off
 ``` 
 
-## Phone Call an Mail Send
+## Phone Call and Mail Send
 
 The **CallPhone()** and the **SendMail()** functions are direct implementations of the library examples.
 
