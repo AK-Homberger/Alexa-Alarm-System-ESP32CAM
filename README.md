@@ -215,6 +215,8 @@ If you are interested in code details and explanations please read [here](https:
 - ESP32CAM [Link](https://www.reichelt.de/index.html?ACTION=446&LA=2&nbc=1&q=esp32cam)
 - HC-SR501 PIR Sensor [Link](https://www.reichelt.de/raspberry-pi-infrarot-bewegungsmelder-pir-hc-sr501-rpi-hc-sr501-p224216.html)
 - Ferrite Ring [Link](https://www.reichelt.de/ringkern-aus-ferroxcube-n30-rik-10-p15244.html?&nbc=1)
+- USB to Serial adapter [Link1](https://www.reichelt.de/entwicklerboards-microusb-buchse-auf-uart-ft232-debo-musb2uart-3-p266053.html?&nbc=1) [Link2](https://www.reichelt.de/entwicklerboards-microusb-buchse-auf-uart-ft232-debo-musb2uart-3-p266053.html?&nbc=1)
+- Power supply 5 Volt [Link](https://www.reichelt.de/de/en/plug-in-power-supply-7-w-5-v-1-5-a-hnp-07-050v2-p298320.html?&nbc=1)
 
 # Updates:
 - 04.08.21: Version 1.0: Initial version.
