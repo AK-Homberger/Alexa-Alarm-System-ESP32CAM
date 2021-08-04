@@ -188,7 +188,8 @@ If you still got false positives, you should have a look to [WLAN interference](
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
 
 ## Root CA Certificate
-For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/de6f3e61684926d26a0e4989af5788e650d2d3ac/AlexaFaceDetectionESP32Cam/AlexaFaceDetectionESP32Cam.ino#L54) is stored in the code. 
+For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/de6f3e61684926d26a0e4989af5788e650d2d3ac/AlexaFaceDetectionESP32Cam/AlexaFaceDetectionESP32Cam.ino#L54) is stored in the code (certificate.h). 
+
 The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
 
 To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
