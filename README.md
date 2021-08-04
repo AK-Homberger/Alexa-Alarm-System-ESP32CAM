@@ -187,7 +187,7 @@ And leave the standard setting for single triggers (jumper to the outside).
 
 ![SR501](https://www.makerguides.com/wp-content/uploads/2019/07/HC-SR501-Pinout-Annotation.jpg)
 
-If you still got false positives, you should have a look to [WLAN interference](https://github.com/AK-Homberger/Alexa-Alarm-System/blob/main/CodeDetails.md#interference-of-wifi-with-pir-sensor) section in the code details.
+If you still got false positives, you should have a look to [WLAN interference](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md#interference-of-wifi-with-pir-sensor) section in the code details.
 
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
 
