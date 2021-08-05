@@ -146,13 +146,12 @@ void capturePhotoSaveSpiffs( void ) {
 ```
 The storage process itself is straight forward:
 
-1. Get a JPG picture from the camere: **fb = esp_camera_fb_get();**
-2. Open SIFFS filesystem for write with filename for photo: **File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);**
+1. Get a JPG picture from the camera: **fb = esp_camera_fb_get();**
+2. Open SPIFFS filesystem for write with filename for photo: **File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);**
 3. Store the photo: **file.write(fb->buf, fb->len);**
 4. Close the file and release the fb reserved memory: **file.close(); esp_camera_fb_return(fb);**
 
 ## SendMail
-
 Sending mails with the library is stright forward:
 
 ```
@@ -173,20 +172,20 @@ Sending mails with the library is stright forward:
 ```
 First create the attachment for the picture. We will provide the same filename **FILE_PHOTO** for the photo stored within the **capturePhotoSaveSpiffs()** function.
 
-And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail aaddress, **message** the message text and **attachs** the attachement.
+And then create the message object, set the subject, set message text and send the mail. **M_DEST** contains the destination e-mail address, **message** the message text and **attachs** the attachement.
 
 ## Phone Call
 
-To do phone calls with the TR-064 API is really simple. Only thre lines of code are necessary:
+To do phone calls with the TR-064 API is really simple. Only three lines of code are necessary:
 
 ```
   String params[][2] = {{"NewX_AVM-DE_PhoneNumber", FB_NUMBER}};
   String req[][2] = {{}};
   connection.action("urn:dslforum-org:service:X_VoIP:1", "X_AVM-DE_DialNumber", params, 1, req, 0);
 ```
-**FB_NUMBER** Contains the number to be dialled.
+**FB_NUMBER** contains the number to be dialled.
 
-The necessary connection init function is called withing the connectWifi() function.
+The necessary connection init function is called withing the **connectWifi()** function.
 ```
 if (CALL_PHONE) connection.init(); // TR-064 init.
 ```
