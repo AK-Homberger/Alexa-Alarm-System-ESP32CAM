@@ -145,7 +145,7 @@ void capturePhotoSaveSpiffs( void ) {
 ```
 The storage process itself is straight forward:
 
-1. Get a picture from the camere (stored in Fb): **fb = esp_camera_fb_get();**
+1. Get a JPG picture from the camere: **fb = esp_camera_fb_get();**
 2. Open SIFFS filesystem for write with filename for photo: **File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);**
 3. Store the photo: **file.write(fb->buf, fb->len);**
 4. Close the file and release the fb reserved memory: **file.close(); esp_camera_fb_return(fb);**
@@ -170,7 +170,7 @@ Sending mails with the library is stright forward:
 
   EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
 ```
-First create the attachment for the picture. We will provide the same filename for the photo stored within the **capturePhotoSaveSpiffs()** function.
+First create the attachment for the picture. We will provide the same filename **FILE_PHOTO** for the photo stored within the **capturePhotoSaveSpiffs()** function.
 
 And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail aaddress, **message** the message text and **attachs** the attachement.
 
