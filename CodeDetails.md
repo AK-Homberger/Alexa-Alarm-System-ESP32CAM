@@ -108,7 +108,7 @@ The structure is always the same:
 You can see that after the sencond movement detection a picture is stored with the function **capturePhotoSaveSpiffs()**.
 
 ## Storage of Photo to SPIFFS
-The e-mail library requires a photo either stored to SD or to the internal [SPIFFS](https://www.tutorialspoint.com/esp32_for_iot/esp32_for_iot_spiffs_storage.htm) file systen.
+The e-mail library requires a photo either stored to SD or to the internal [SPIFFS](https://www.tutorialspoint.com/esp32_for_iot/esp32_for_iot_spiffs_storage.htm) file system.
 
 We are using SPIFSS in this project. It is therefore important to select a partition scheme in the Arduino IDE that supports SPIFFS.
 
