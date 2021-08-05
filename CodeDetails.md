@@ -11,6 +11,7 @@ In the main sketch the web requests are handled with the following functions:
   server.on("/on", handleOn);             // Handle On button
   server.on("/off", handleOff);           // Handle Off button
   server.on("/uptime", handleUptime);     // Handle uptime request
+  server.on("/test", handleTest);         // Handle test request
 ````
 The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/b849df58299e61e71e646e5ed7547d1ba0f17cba/AlexaIntruderAlert/AlexaIntruderAlert.ino#L169) are called when an URL is requested from the web client.
 
@@ -108,7 +109,7 @@ You can see that after the sencond movement detection a picture is stored with t
 
 ## Storage of Photo to SPIFFS
 The e-mail library requires a photo either stored to SD or to the internal SIPFF file systen.
-We are using SIPSS in this project. It is therefore impotant to select a partition scheme in the Arduino IDE that support SPIFFS.
+We are using SIPSS in this project. It is therefore important to select a partition scheme in the Arduino IDE that supports SPIFFS.
 
 ```
 void capturePhotoSaveSpiffs( void ) {
@@ -144,9 +145,10 @@ void capturePhotoSaveSpiffs( void ) {
 ```
 The storage process itself is straight forward:
 
-1. Get a picture from the camere (stored in Fb): fb = esp_camera_fb_get();
-2. Open SIFFS filesystem with filename for photo: File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);
-3. Store the photo: file.write(fb->buf, fb->len);
+1. Get a picture from the camere (stored in Fb): **fb = esp_camera_fb_get();**
+2. Open SIFFS filesystem for write with filename for photo: **File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);**
+3. Store the photo: **file.write(fb->buf, fb->len);**
+4. Close the file and release the fb reserved memory: **file.close(); esp_camera_fb_return(fb);**
 
 ## SendMail
 
@@ -168,23 +170,27 @@ Sending mails with the library is stright forward:
 
   EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
 ```
-First create the attachment for the picture. And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail address.
+First create the attachment for the picture. We will provide the same filename for the photo stored within the **capturePhotoSaveSpiffs()** function.
+
+And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail aaddress, **message** the message text and **attachs** the attachement.
 
 ## Phone Call
+
+To do phone calls with the TR-064 API is really simple. Only thre lines of code are necessary:
 
 ```
   String params[][2] = {{"NewX_AVM-DE_PhoneNumber", FB_NUMBER}};
   String req[][2] = {{}};
   connection.action("urn:dslforum-org:service:X_VoIP:1", "X_AVM-DE_DialNumber", params, 1, req, 0);
 ```
+**FB_NUMBER** Contains the number to be dialled.
 
-The necessary connection init function is called withing the connectWifi() function
+The necessary connection init function is called withing the connectWifi() function.
 ```
 if (CALL_PHONE) connection.init(); // TR-064 init.
 ```
 
 ## Alexa Device Name and Callback Function
-
 Alexa devices are added with the defined name **AlexaName** with the following commands in **setup()**:
 ```
 if (USE_ALEXA) {                      // Add Alexa device with device name and set callback function
