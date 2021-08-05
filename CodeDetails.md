@@ -104,6 +104,85 @@ The structure is always the same:
 - if() block
 - Set new state
 
+You can see that after the sencond movement detection a picture is stored with the function **capturePhotoSaveSpiffs()**.
+
+## Storage of Photo to SPIFFS
+The e-mail library requires a photo either stored to SD or to the internal SIPFF file systen.
+We are using SIPSS in this project. It is therefore impotant to select a partition scheme in the Arduino IDE that support SPIFFS.
+
+```
+void capturePhotoSaveSpiffs( void ) {
+  // Take a photo with the camera
+  Serial.println("Taking a photo...");
+
+  fb = esp_camera_fb_get();
+  if (!fb) {
+    Serial.println("Camera capture failed");
+    return;
+  }
+
+  // Photo file name
+  Serial.printf("Picture file name: %s\n", FILE_PHOTO);
+  File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);
+
+  // Insert the data in the photo file
+  if (!file) {
+    Serial.println("Failed to open file in writing mode");
+  }
+  else {
+    file.write(fb->buf, fb->len); // payload (image), payload length
+    Serial.print("The picture has been saved in ");
+    Serial.print(FILE_PHOTO);
+    Serial.print(" - Size: ");
+    Serial.print(file.size());
+    Serial.println(" bytes");
+  }
+  // Close the file
+  file.close();
+  esp_camera_fb_return(fb);
+}
+```
+The storage process itself is straight forward:
+
+1. Get a picture from the camere (stored in Fb): fb = esp_camera_fb_get();
+2. Open SIFFS filesystem with filename for photo: File file = SPIFFS.open(FILE_PHOTO, FILE_WRITE);
+3. Store the photo: file.write(fb->buf, fb->len);
+
+## SendMail
+
+Sending mails with the library is stright forward:
+
+```
+  EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
+  fileDescriptor[0].filename = "photo.jpg";
+  fileDescriptor[0].url = FILE_PHOTO;
+  fileDescriptor[0].mime = "image/jpg";
+  fileDescriptor[0].encode64 = true;
+  fileDescriptor[0].storageType = EMailSender::EMAIL_STORAGE_TYPE_SPIFFS;
+
+  EMailSender::Attachments attachs = {1, fileDescriptor};
+
+  EMailSender::EMailMessage message;    // Create email message
+  message.subject = "Intruder Alert!";
+  message.message = time_str;
+
+  EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
+```
+First create the attachment for the picture. And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail address.
+
+## Phone Call
+
+```
+  String params[][2] = {{"NewX_AVM-DE_PhoneNumber", FB_NUMBER}};
+  String req[][2] = {{}};
+  connection.action("urn:dslforum-org:service:X_VoIP:1", "X_AVM-DE_DialNumber", params, 1, req, 0);
+```
+
+The necessary connection init function is called withing the connectWifi() function
+```
+if (CALL_PHONE) connection.init(); // TR-064 init.
+```
+
 ## Alexa Device Name and Callback Function
 
 Alexa devices are added with the defined name **AlexaName** with the following commands in **setup()**:
@@ -116,6 +195,7 @@ if (USE_ALEXA) {                      // Add Alexa device with device name and s
 ```
 The callback function **AlertChanged()** is called later in the event of Alexa commands for the defined devices.
 With **espalexa.begin()** the service will be started.
+
 ```
 //*******************************************************************************
 // This function is called when a command from Alexa is received
@@ -158,44 +238,6 @@ The Alexa device state is also maintained if the web interface is used:
  handleOff() {
  if (USE_ALEXA) device->setValue(0);   // Set Alexa state Off
 ``` 
-
-## Phone Call and Mail Send
-
-The **CallPhone()** and the **SendMail()** functions are direct implementations of the library examples.
-
-**CallPhone:**
-```
-  String params[][2] = {{"NewX_AVM-DE_PhoneNumber", FB_NUMBER}};
-  String req[][2] = {{}};
-  connection.action("urn:dslforum-org:service:X_VoIP:1", "X_AVM-DE_DialNumber", params, 1, req, 0);
-```
-
-The necessary connection init function is called withing the connectWifi() function
-```
-if (CALL_PHONE) connection.init(); // TR-064 init.
-```
-
-**SendMail:**
-
-Sending mails with the library is stright forward:
-
-```
-  EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
-  fileDescriptor[0].filename = "photo.jpg";
-  fileDescriptor[0].url = FILE_PHOTO;
-  fileDescriptor[0].mime = "image/jpg";
-  fileDescriptor[0].encode64 = true;
-  fileDescriptor[0].storageType = EMailSender::EMAIL_STORAGE_TYPE_SPIFFS;
-
-  EMailSender::Attachments attachs = {1, fileDescriptor};
-
-  EMailSender::EMailMessage message;    // Create email message
-  message.subject = "Intruder Alert!";
-  message.message = time_str;
-
-  EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
-```
-First create the attachment for the picture. And then create the message object, set the subject and message text and send the mail. **M_DEST** contains the destination e-mail address.
 
 ## Interference of WiFi with PIR sensor
 The used PIR sensor HC-SR501 is in general a very reliable PIR sensor. But if it is used together with a WLAN device connected to the sensor, then there is a chance for an interference between the WLAN signal and the PIR detection.
