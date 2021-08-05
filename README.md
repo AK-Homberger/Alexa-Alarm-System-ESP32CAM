@@ -72,14 +72,15 @@ You need an external (FTDI) programmer to install the (initial) sketch on the ES
 
 ![FTDI](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/ESP32-CAM-FTDI.png)
 
-For programming you have to connect IO0 to GND, RX/TX (crossed) and 5V/GND. Then press the "boot" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
+For programming you have to connect IO0 to GND, RX/TX (crossed) and 5V/GND. If you have the power supply already connected, then do not connect the 5V cable from the adapter.
+
+Then press the "boot" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
 
 For normal start open IO0 from GND and press "boot" again.
 
-After the initial sketch upload via USB, you can also do "Over the Air" updates via WLAN. The OTA device name is set to "IntruderAlertCam".
+After the initial sketch upload via USB, you can also do "Over the Air" updates via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished to start the sketch.
 
 After uploading the sketch to the ESP32CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
-
 
 ## Settings
 To use the sketch, just change the relevant settings in the code:
@@ -128,7 +129,6 @@ char* FB_IP = "192.168.0.1";            // IP of Fritzbox
 int  FB_PORT = 49000;
 ```
 ## Email Notification via gmail Account
-
 Email alert notification can be used with the [EMailSender](https://github.com/xreef/EMailSender) library. The library might be usable also with other providers. But the easiest way is to use a Google mail account for sending e-mail notification.
 
 Just create a new gmail account for SMTP notifications and place the credentials here.
