@@ -1,5 +1,5 @@
-# Alexa integrated Alarm System (with ESP32CAM)
-This is an Alexa controlled intruder alert system with a ESP32CAM and a HC-SR501 PIR motion detection module.
+# Alexa integrated Alarm System (with ESP32-CAM)
+This is an Alexa controlled intruder alert system with a ESP32-CAM and a HC-SR501 PIR motion detection module.
 
 ![connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.jpg)
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
@@ -33,16 +33,16 @@ The alert system can also be controlled with a [web interface](https://github.co
 
 # Hardware
 
-The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32CAM and the HC-SR501 PIR sensor (less then 20 Euro).
+The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro).
 See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
 
-The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires. And the ESP32CAM has to be connected to 5V and GND.
+The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires. And the ESP32-CAM has to be connected to 5V and GND.
 
-| ESP32CAM | SR501 | Power supply 5V|
-|----------|-------|----------------|
-| 5V       | VCC   | 5V             | 
-| GND      | GND   | GND            |
-| GPIO2    | OUT   |                |
+| ESP32-CAM | SR501 | Power supply 5V|
+|-----------|-------|----------------|
+| 5V        | VCC   | 5V             | 
+| GND       | GND   | GND            |
+| GPIO2     | OUT   |                |
 
 Just solder The wires or you can use jumper cables if using a breadboard.
 
@@ -80,7 +80,7 @@ For normal start open IO0 from GND and press "boot" again.
 
 After the initial sketch upload via USB, you can also do "Over the Air" updates via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished to start the sketch.
 
-After uploading the sketch to the ESP32CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
+After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
 
 ## Settings
 To use the sketch, just change the relevant settings in the code:
@@ -163,7 +163,13 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
 The first URL is the alarm routine trigger and the second the notification routine trigger.
 Use the JSON variant (short response). But all three variants will work.
 
-In the Alexa APP you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 20 seconds alarm delay until the alarm is raised.
+For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaIntruderAlert/certificate.h) is stored in the code (certificate.h). 
+
+The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
+
+To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
+
+In the Alexa APP you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
 ![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.png)
@@ -201,13 +207,6 @@ And leave the standard setting for single triggers (jumper to the outside).
 If you still got false positives, you should have a look to [WLAN interference](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md#interference-of-wifi-with-pir-sensor) section in the code details.
 
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
-
-## Root CA Certificate
-For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaIntruderAlert/certificate.h) is stored in the code (certificate.h). 
-
-The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
-
-To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
 
 # Code Details
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
