@@ -203,6 +203,12 @@ If you still got false positives, you should have a look to [WLAN interference](
 
 A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com/hc-sr501-arduino-tutorial/).
 
+# External Alarm Contacts
+
+It is possible to extend the alarm system with external door/windows alarm contacts.
+The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md).
+
+
 # Code Details
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
 
