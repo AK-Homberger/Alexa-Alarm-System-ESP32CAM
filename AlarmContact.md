@@ -5,4 +5,14 @@ We use a battery powered ESP12 module for this task. The module is usually in de
 
 ![Schematics](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/ESP12AlarmContact.png)
 
-The softwre is [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/ESP12AlarmContact/ESP12AlarmContact.ino)
+The softwre is [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/ESP12AlarmContact/ESP12AlarmContact.ino).
+
+Just change the WLAN credentials:
+```
+// WLAN credentials
+const char* ssid = "ssid";
+const char* password = "password";
+```
+And set the IP for the ESP32-CAM module:
+
+
