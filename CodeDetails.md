@@ -13,7 +13,7 @@ In the main sketch the web requests are handled with the following functions:
   server.on("/uptime", handleUptime);     // Handle uptime request
   server.on("/test", handleTest);         // Handle test request
 ````
-The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/b849df58299e61e71e646e5ed7547d1ba0f17cba/AlexaIntruderAlert/AlexaIntruderAlert.ino#L169) are called when an URL is requested from the web client.
+The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/1f700aff859da14c6b3dcb5998a23defb316ee71/AlexaIntruderAlert/AlexaIntruderAlert.ino#L169) are called when an URL is requested from the web client.
 
 The status data is passed to the web client in the **handleGetData()** function (as JSON data).
 
