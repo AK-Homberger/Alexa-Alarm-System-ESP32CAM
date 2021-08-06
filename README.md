@@ -29,14 +29,34 @@ To allow disarming of the detector when coming back home, there is an alarm dela
 
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
 
-The alert system can also be controlled with a [web interface](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#web-interface) with (IP-Address:90).
+# Web Interface
+In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect.
+
+![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
+
+The current camera view is shown in the browser. In case of an alarm, you can check who is moving in the room.
+
+You can use On/Off commands to arm/disarm the system. When armed with the web interface, the system is directly activated without an arm delay time.
+
+The "Active (0)" state also shows the trigger counts for single PIR triggers. 
+
+The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown.
+```
+Time: 09:16:03
+Uptime: 13 (hours)
+Free Heap: 27728
+Single=6 Double=2
+Max FPS=10
+```
+The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
+
+To avoid false alarms, the software always waits for two PIR trigger events within 30 seconds.
 
 # Hardware
-
 The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro).
 See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
 
-The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three wires. And the ESP32-CAM has to be connected to 5V and GND.
+The HC-SR501 PIR motion detection sensor is connected to the ESP32-CAM with three wires. And the ESP32-CAM has to be connected to 5V and GND.
 
 | ESP32-CAM | HC-SR501 | Power supply 5V|
 |-----------|----------|----------------|
@@ -48,10 +68,9 @@ Just solder the wires or you can use jumper cables if using a breadboard.
 
 ![Connected2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
 
-To minimise interference of WLAN with the PIR motion detcection, the tree wires to the SR501 module are moved through a ferrite ring. 
+To minimise interference of WLAN with the PIR motion detcection, the three wires to the HC-SR501 module are moved through a ferrite ring. 
 
 # Software
-
 The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaIntruderAlert) is created to be used within the Arduino IDE (tested with version 1.8.13). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested).
 
 In the IDE you have to select:
@@ -78,7 +97,7 @@ Then press the "boot" button on the ESP32-CAM. After that, you can start the upl
 
 For normal start open IO0 from GND and press "boot" again.
 
-After the initial sketch upload via USB, you can also do "Over the Air" updates via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished to start the sketch.
+After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished to start the sketch.
 
 After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
 
@@ -173,29 +192,6 @@ In the Alexa APP you can then create two routines. One is the routine for alarm 
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
 ![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.png)
-
-# Web Interface
-In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect.
-
-![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
-
-The current camera view is shown in the browser. In case of an alarm, you can check who is moving in the room.
-
-You can use On/Off commands to arm/disarm the system. When armed with the web interface, the system is directly activated without an arm delay time.
-
-The "Active (0)" state also shows the trigger counts for single PIR triggers. 
-
-The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown.
-```
-Time: 09:16:03
-Uptime: 13 (hours)
-Free Heap: 27728
-Single=6 Double=2
-Max FPS=10
-```
-The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
-
-To avoid false alarms, the software always waits for two PIR trigger events within 30 seconds.
 
 # Sensitivity Adjustment
 To adjust the sensitivity on the HC-SR501 module, you have to change the left potentiometer. Turn counter clockwise to reduce the sensitivity. Reduce the sensitivity so far, to ensure that there are not too many wrong PIR triggers (e.g. because of normal temperature changes). 
