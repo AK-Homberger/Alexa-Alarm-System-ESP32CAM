@@ -206,7 +206,7 @@ A nice tutorial for the HC-SR501 can be found [here](https://www.makerguides.com
 # External Alarm Contacts
 
 It is possible to extend the alarm system with external door/windows alarm contacts.
-The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md).
+The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlarmContact.md).
 
 
 # Code Details
