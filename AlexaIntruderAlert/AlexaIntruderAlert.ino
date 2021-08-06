@@ -172,6 +172,7 @@ void setup() {
   server.on("/off", handleOff);           // Handle Off button
   server.on("/uptime", handleUptime);     // Handle uptime request
   server.on("/test", handleTest);         // Handle test request
+  server.on("/alarm_trigger", handleTrigger); // Handle external trigger
 
   wifiConnected = connectWifi();          // Initialise wifi connection
 
@@ -492,6 +493,21 @@ void handleUptime() {
 void handleTest() {
   ReqURL(1);
   server.send(200, "text/plain", "Test Request");
+}
+
+
+//*****************************************************************************
+// Handle external alarm trigger request
+//
+void handleTrigger() {
+  if (pir_sensor_active && !alarm_state) {
+    capturePhotoSaveSpiffs();     // Store picture
+    alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
+    alarm_state = true;           // Set alarm status to true
+    if (!SILENT_ALARM && USE_ALEXA) ReqURL(1);   // Play ping sound on Alexa if available and not SILENT_ALARM
+  }
+  Serial.println("External alarm request.");
+  server.send(200, "text/plain", "External Request!");
 }
 
 
