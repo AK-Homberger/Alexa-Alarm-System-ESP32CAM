@@ -8,7 +8,7 @@ This is an Alexa controlled intruder alert system with a ESP32-CAM and a HC-SR50
 - The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
 - The www.virtualsmarthome.xyz URL trigger service is used to start Alexa routines in case of an alarm
 - A web interface can be used to see the video stream and control the activation status
-- It can call (mobile)phones via [Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
+- It can call (mobile)phones via [AVM Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
 
