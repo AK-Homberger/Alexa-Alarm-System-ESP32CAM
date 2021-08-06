@@ -17,7 +17,9 @@ const char* password = "password";
 ```
 And set the IP for the ESP32-CAM module:
 
+```
 http.begin("http://192.168.0.51:90/alarm_trigger");  // Change IP to ESP32-CAM alarm system IP
+```
 
 Thats all.
 
