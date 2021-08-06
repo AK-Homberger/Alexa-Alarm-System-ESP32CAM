@@ -25,7 +25,7 @@ For programming the device, you need again the USB-To-Serial adapter. For progra
 
 As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 
-## Partlist:
+## Parts:
 
 - ESP12 [Link](https://www.reichelt.de/de/en/index.html?ACTION=446&LA=3&nbc=1&q=esp12)
 - Push button [Link](https://www.reichelt.de/miniatur-drucktaster-0-5a-24vac-1x-ein-rt-t-250a-rt-p31772.html?&trstct=pol_12&nbc=1)
