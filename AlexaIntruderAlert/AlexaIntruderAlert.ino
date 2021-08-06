@@ -73,7 +73,7 @@ char* ssid = "ssid";
 char* password = "password";
 
 // Alexa device name
-char* AlexaName = "Alert";              // Define your Alexa device name
+char* AlexaName = "Alarm";              // Define your Alexa device name
 
 // Fritzbox credentials for TR064
 char* FB_NUMBER = "0123456789";         // Phone number to dial
