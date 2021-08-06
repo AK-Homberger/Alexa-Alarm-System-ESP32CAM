@@ -7,7 +7,7 @@ Here is the plan for the external components and connection.
 
 ![Schematics](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/ESP12AlarmContact.png)
 
-The softwre is [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/ESP12AlarmContact/ESP12AlarmContact.ino).
+The software for the ESP12 is [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/ESP12AlarmContact/ESP12AlarmContact.ino).
 
 Just change the WLAN credentials:
 ```
