@@ -103,7 +103,7 @@ char* ssid = "ssid";
 char* password = "password";
 ```
 
-## Espalexa HUE Emulation / Device Name
+## Espalexa Hue Emulation / Device Name
 The [Espalexa](https://github.com/Aircoookie/Espalexa) Philips Hue emulation service is emulating a device that can be discovered and controlled from Alexa.
 
 The alarm system can be armed/disarmed with Alexa voice commands (device on/off). Just define the device name to be used with Alexa. When activated via Alexa command, there will be 60 seconds arm delay time until the alarm system is activated. That shall allow to leave the house before the system is activated.
