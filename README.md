@@ -42,7 +42,7 @@ The HC-SR501 PIR motion detection sensor is connected to the ESP32CAM with three
 |-----------|----------|----------------|
 | 5V        | VCC      | 5V             | 
 | GND       | GND      | GND            |
-| GPIO2     | OUT      |                |
+| IO2       | OUT      |                |
 
 Just solder the wires or you can use jumper cables if using a breadboard.
 
