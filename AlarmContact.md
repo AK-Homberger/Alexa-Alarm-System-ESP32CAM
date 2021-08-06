@@ -25,4 +25,12 @@ For programming the device you need again the USB-To-Serial adapter. For program
 
 As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 
-## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
+## Partlist:
+
+- ESP12 [Link](https://www.reichelt.de/de/en/index.html?ACTION=446&LA=3&nbc=1&q=esp12)
+- Push button [Link](https://www.reichelt.de/miniatur-drucktaster-0-5a-24vac-1x-ein-rt-t-250a-rt-p31772.html?&trstct=pol_12&nbc=1)
+- Toggle switch [Link](https://www.reichelt.de/de/en/miniature-toggle-switch-1x-on-off-on-rnd-210-00448-p240580.html?GROUPID=7584&START=0&OFFSET=16&SID=96Xk5YJngRlij1C8dm7WFa8cc43c9fd0145a715a7ea5bf81fdb75&LANGUAGE=EN&&r=1)
+- Battery 123A [Link](https://www.reichelt.de/de/en/varta-photo-3-volt-1430-mah-17x34-5mm-varta-cr-123a-p7352.html?search=123a&&r=1)
+- Battery holder [Link](https://www.reichelt.de/de/en/battery-holder-for-2-3a-cr-123--halter-2-3a-
+- 
+- ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
