@@ -32,5 +32,6 @@ As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 - Toggle switch [Link](https://www.reichelt.de/de/en/miniature-toggle-switch-1x-on-off-on-rnd-210-00448-p240580.html?GROUPID=7584&START=0&OFFSET=16&SID=96Xk5YJngRlij1C8dm7WFa8cc43c9fd0145a715a7ea5bf81fdb75&LANGUAGE=EN&&r=1)
 - Battery 123A [Link](https://www.reichelt.de/de/en/varta-photo-3-volt-1430-mah-17x34-5mm-varta-cr-123a-p7352.html?search=123a&&r=1)
 - Battery holder [Link](https://www.reichelt.de/de/en/battery-holder-for-2-3a-cr-123--halter-2-3a-p44605.html?search=battery+holder+123&&r=1)
+- Reed Contact [Link](https://www.reichelt.de/de/en/opening-detector-normally-open-switch-contact-2-core-white-mk-2000w-p62375.html?&nbc=1)
 
 - ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
