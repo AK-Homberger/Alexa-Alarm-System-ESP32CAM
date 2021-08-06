@@ -17,7 +17,7 @@ The alarm system is mainly created for Alexa integration, but it works also with
 # Usage
 Just place the alarm module somewhere in your home where it can detect suspicious movements with the infrared PIR sensor. The module has to be powered with 5 Volt.
 
-Then activate the detector with an Alexa voice command: **"Alexa, Alert On"**. There is a 60 seconds arm delay time before the detector is activated. This shall allow leaving the home before the motion detector is activated. The device name can be changed in the settings section. Set the device name from "Alert" to something special, to ensure an intruder is not guessing the device name to switch off the alarm.
+Then activate the alarm system with an Alexa voice command: **"Alexa, Alert On"**. There is a 60 seconds arm delay time before the detector is activated. This shall allow leaving the home before the motion detector is activated. The device name can be changed in the settings section. Set the device name from "Alert" to something special, to ensure an intruder is not guessing the device name to switch off the alarm.
 
 To avoid false alarms, the detector is programmed to wait for two detected motions within 30 seconds. 
 
@@ -53,8 +53,7 @@ The counters shall support the setting of the sensitivity of the PIR module. If 
 To avoid false alarms, the software always waits for two PIR trigger events within 30 seconds.
 
 # Hardware
-The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro).
-See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
+The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro). See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
 
 The HC-SR501 PIR motion detection sensor is connected to the ESP32-CAM with three wires. And the ESP32-CAM has to be connected to 5V and GND.
 
@@ -97,7 +96,7 @@ Then press the "boot" button on the ESP32-CAM. After that, you can start the upl
 
 For normal start open IO0 from GND and press "boot" again.
 
-After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished to start the sketch.
+After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished, to start the sketch.
 
 After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
 
@@ -125,7 +124,7 @@ char* password = "password";
 ## Espalexa Hue Emulation / Device Name
 The [Espalexa](https://github.com/Aircoookie/Espalexa) Philips Hue emulation service is emulating a device that can be discovered and controlled from Alexa.
 
-The alarm system can be armed/disarmed with Alexa voice commands (device on/off). Just define the device name to be used with Alexa. When activated via Alexa command, there will be 60 seconds arm delay time until the alarm system is activated. That shall allow to leave the house before the system is activated.
+The alarm system can be armed/disarmed with Alexa voice commands (device on/off) or with the Alexa App. Just define the device name to be used with Alexa. When activated via Alexa command, there will be 60 seconds arm delay time until the alarm system is activated. That shall allow to leave the house before the system is activated.
 
 ```
 // Alexa device name
