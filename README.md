@@ -8,7 +8,7 @@ This is an Alexa controlled intruder alert system with a ESP32-CAM and a HC-SR50
 - The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
 - The www.virtualsmarthome.xyz URL trigger service is used to start Alexa routines in case of an alarm
 - A web interface can be used to see the video stream and control the activation status
-- It can call (mobile)phones via [fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
+- It can call (mobile)phones via [Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
 
@@ -23,7 +23,7 @@ To avoid false alarms, the detector is programmed to wait for two detected motio
 
 If a (double)motion is detected while the detector is activated, then a alarm notification is done (phone call, e-mail). You can also trigger Alexa routines in case of an alarm. You can for example let Alexa play an alarm sound, speak a text or switch on/off lights. It's totally up to you.
 
-A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via [VPN](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) connection from phone to fritzbox) can be used to see the current video stream from camera.
+A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via [VPN](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) connection from phone to router) can be used to see the current video stream from camera.
 
 To allow disarming of the detector when coming back home, there is an alarm delay time of 15 seconds defined. During this 15 seconds you can switch the module off with an "Alexa, Alert Off" command.
 
