@@ -30,7 +30,7 @@ To allow disarming of the detector when coming back home, there is an alarm dela
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
 
 # Web Interface
-In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect.
+In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect. If the client is supporting the Bonjour-Protocol, you can also us **alertsystem.local:90** in the browser.
 
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
@@ -96,7 +96,7 @@ Then press the "boot" button on the ESP32-CAM. After that, you can start the upl
 
 For normal start open IO0 from GND and press "boot" again.
 
-After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "IntruderAlertCam". Sometimes it is necesssary to press the "boot" button after the OTA process is finished, to start the sketch.
+After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "boot" button after the OTA process is finished, to start the sketch.
 
 After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
 
@@ -187,7 +187,7 @@ The certificate is used to authenticate the identity of the web server. **The ce
 
 To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) and then on "PEM (Certificate)". The certificate text have to be copied into the sketch to update.
 
-In the Alexa APP you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
+In the Alexa App you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
 ![Alexa2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa2.png)
