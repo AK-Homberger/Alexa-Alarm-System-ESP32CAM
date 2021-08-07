@@ -30,7 +30,7 @@ To allow disarming of the detector when coming back home, there is an alarm dela
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
 
 # Web Interface
-In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect. If the client is supporting the Bonjour-Protocol, you can also use **alertsystem.local:90** in the browser.
+In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect. If the client is supporting the Bonjour-Protocol, you can also use **alarmsystem.local:90** in the browser.
 
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
