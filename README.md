@@ -86,7 +86,7 @@ The following external libraries are used:
 
 Most external libraries can be installed via the IDE Library Manager. If not possible, install as ZIP file downloaded from GitHub (green button "Code").
 
-You need an external (FTDI) programmer to install the (initial) sketch on the ESP32-CAM module. 
+You need an external (FTDI) programmer to install the (initial) sketch on the ESP32-CAM module. You have to set the voltage of the adapter to 5 Volt.
 
 ![FTDI](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/ESP32-CAM-FTDI.png)
 
