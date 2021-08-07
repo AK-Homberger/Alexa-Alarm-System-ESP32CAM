@@ -1,5 +1,5 @@
 # Alexa integrated Alarm System (with ESP32-CAM)
-This is an Alexa controlled intruder alert system with a ESP32-CAM and a HC-SR501 PIR motion detection module.
+This is an Alexa controlled alarm system with a ESP32-CAM and a HC-SR501 PIR motion detection module.
 
 ![connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.jpg)
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
@@ -30,7 +30,7 @@ To allow disarming of the detector when coming back home, there is an alarm dela
 After an alarm, there is a wait time defined of 5 minutes before a next alarm can be raised. The wait time can be stopped with any On/Off command.
 
 # Web Interface
-In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect. If the client is supporting the Bonjour-Protocol, you can also us **alertsystem.local:90** in the browser.
+In addition to Alexa commands, the system can be controlled also with a web interface. Use **IP-address:90** to start the interface. Port 80 is used for the Espalexa service. The IP address is shown during the start of the sketch in the serial monitor of the IDE. The video stream is provided via a websocket connection to the client. Only one stream is supported. An error message is diplayed for additional web clients trying to connect. If the client is supporting the Bonjour-Protocol, you can also use **alertsystem.local:90** in the browser.
 
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
@@ -181,7 +181,7 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
 The first URL is the alarm routine trigger and the second the notification routine trigger.
 Use the JSON variant (short response). But all three variants will work.
 
-For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaIntruderAlert/certificate.h) is stored in the code (certificate.h). 
+For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). 
 
 The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then.
 
