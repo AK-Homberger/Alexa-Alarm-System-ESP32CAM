@@ -23,13 +23,9 @@ http.begin("http://192.168.0.51:90/alarm_trigger");  // Change IP to ESP32-CAM a
 
 Thats all.
 
-For programming the device, you need again the USB-To-Serial adapter. As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
-
-For programming connect it to RX/TX and GND. Close the Flash switch and press RST. Then upload the sketch.
+For programming the device, you need again the USB-To-Serial adapter. Connect it to RX/TX and GND. Close the Flash switch and press RST. Then upload the sketch. As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 
 To reduce the required space you can remove the USB-Serial adapter, the Flash switch and RST button after sucessfull programming. 
-
-
 
 ## Parts:
 
