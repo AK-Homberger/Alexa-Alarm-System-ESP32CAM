@@ -149,7 +149,7 @@ int  FB_PORT = 49000;
 ## Email Notification via gmail Account
 Email alert notification can be used with the [EMailSender](https://github.com/xreef/EMailSender) library. The library might be usable also with other providers. But the easiest way is to use a Google mail account for sending e-mail notification.
 
-Just create a new [gmail](mail.google.com) account for SMTP notifications and place the credentials here.
+Just create a new [gmail](https://mail.google.com) account for SMTP notifications and place the credentials here.
 Important: Allow less secure connections in gmail security settings. 
 
 With "destination@domain.de" you can define the e-mail destination address.
