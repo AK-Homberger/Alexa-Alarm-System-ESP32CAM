@@ -36,4 +36,4 @@ To reduce the required space you can remove the USB-Serial adapter, the Flash sw
 - Battery holder [Link](https://www.reichelt.de/de/en/battery-holder-for-2-3a-cr-123--halter-2-3a-p44605.html?search=battery+holder+123&&r=1)
 - Reed Contact [Link](https://www.reichelt.de/de/en/opening-detector-normally-open-switch-contact-2-core-white-mk-2000w-p62375.html?&nbc=1)
 
-- ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
+## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
