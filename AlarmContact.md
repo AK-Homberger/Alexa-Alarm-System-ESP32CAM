@@ -25,7 +25,7 @@ Thats all.
 
 For programming the device, you need again the USB-To-Serial adapter. For programming connect it to RX/TX and GND. Close the Flash switch and press RST. Then upload the sketch.
 
-To reduce the required space you can remove the Flash switch and RST button after sucessfull programming. 
+To reduce the required space you can remove the USB-Serial adapter, the Flash switch and RST button after sucessfull programming. 
 
 As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 
