@@ -20,7 +20,7 @@
 // - Can call phones via fritzbox TR-064 API
 // - Can send e-mail notifications with picture via gmail account
 //
-// Version 1.0 - 07.08.2021
+// Version 1.0 - 08.08.2021
 
 #include <Arduino.h>
 #include <WiFi.h>
@@ -95,7 +95,6 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
                             };
 
 //*******************************************************************************
-
 WiFiClientSecure client;            // Create HTTPS client
 WiFiUDP ntpUDP;                     // Create UDP object
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 7200); // Define NTP Client to get time
@@ -188,8 +187,16 @@ void setup() {
 
   client.setCACert(rootCACertificate);  // Set root CA certificate of VSH
 
+  if (USE_ALEXA) {                      // Add Alexa device with device name and set callback function
+    device = new EspalexaDevice(AlexaName, AlertChanged);
+    espalexa.addDevice(device);
+    espalexa.begin();
+  }
+  
   EEPROM.begin(16);
   pir_sensor_active = EEPROM.read(0);   // Read last arm/disarm state e.g. to set after reset
+  if (USE_ALEXA && pir_sensor_active) device->setValue(255);  // Set Alexa state On
+  if (USE_ALEXA && !pir_sensor_active) device->setValue(0);   // Set Alexa state Off
 
   MDNS.begin(SYSTEM_NAME);
   server.begin();                       // Start web server handling
@@ -197,12 +204,6 @@ void setup() {
   MDNS.addService("http", "tcp", 90);
 
   socket_server.listen(91);             // Start web socket server on port 91 (for streaming)
-
-  if (USE_ALEXA) {                      // Add Alexa device with device name and set callback function
-    device = new EspalexaDevice(AlexaName, AlertChanged);
-    espalexa.addDevice(device);
-    espalexa.begin();
-  }
 
   ArduinoOTA.setHostname(SYSTEM_NAME);     // Arduino OTA config and start
   ArduinoOTA.begin();
