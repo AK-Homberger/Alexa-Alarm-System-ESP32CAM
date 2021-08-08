@@ -15,7 +15,7 @@ In the main sketch the web requests are handled with the following functions:
   server.on("/test", handleTest);         // Handle test request
   server.on("/alarm_trigger", handleTrigger); // Handle external trigger
 ````
-The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/21c179a451ae4b24ac1cf8db55b03bd33568552a/AlexaAlarmSystem/AlexaAlarmSystem.ino#L171) are called when an URL is requested from the web client.
+The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/5447aa7a7ca47a156a6f3a29262c41ef83831091/AlexaAlarmSystem/AlexaAlarmSystem.ino#L170) are called when an URL is requested from the web client.
 
 The status data is passed to the web client in the **handleGetData()** function (as JSON data).
 
