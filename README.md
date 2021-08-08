@@ -84,7 +84,7 @@ The following external libraries are used:
 - ArduinoJson       (https://arduinojson.org/v6/doc/)
 - TR-064            (https://github.com/Aypac/Arduino-TR-064-SOAP-Library)
 
-All libraries can be installed via the IDE Library Manager. Search for the libraries with the name in the searchield (e.g ArduinoWebSockets) and select Install.
+All libraries can be installed via the IDE Library Manager. Search for the libraries with the name in the search field (e.g. ArduinoWebSockets) and select Install.
 
 You need an external (FTDI) programmer to install the (initial) sketch on the ESP32-CAM module. You have to set the voltage of the adapter to 5 Volt.
 
