@@ -98,7 +98,7 @@ For normal start open IO0 from GND and press "boot" again.
 
 After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "boot" button after the OTA process is finished, to start the sketch.
 
-After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Pilips Hue").
+After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Philips Hue").
 
 ## Settings
 To use the sketch, just change the relevant settings in the code:
