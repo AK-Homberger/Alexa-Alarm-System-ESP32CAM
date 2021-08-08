@@ -70,7 +70,7 @@ Just solder the wires or you can use jumper cables if using a breadboard.
 To minimise interference of WLAN with the PIR motion detcection, the three wires to the HC-SR501 module are moved through a ferrite ring. 
 
 # Software
-The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested).
+The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be [installed](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html) in the IDE (version 1.0.6 is tested).
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
