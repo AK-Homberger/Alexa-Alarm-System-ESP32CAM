@@ -60,7 +60,7 @@
 #define LED_BUILTIN 4
 
 #define FILE_PHOTO "/photo.jpg"   // Filename of picture stored to SPIFFS
-#define SYSTEM_NAME "AlarmSystem"  // System name for hostname OT and MDNS
+#define SYSTEM_NAME "AlarmSystem" // System name for hostname OTA and mDNS
 
 // Change credentials, Alexa device name and Trigger URLs !!!
 //*******************************************************************************
