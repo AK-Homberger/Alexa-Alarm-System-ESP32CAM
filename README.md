@@ -50,7 +50,7 @@ Max FPS=5
 ```
 The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
 
-The frame rate is set to 5 pictures/second (can be changed with the variable **fps** in the code). Higher frame rates can disturb the Espalexa Hue communication while a Web client is connected. The Alexa App shows then a problem with the device and control via voice command is not possible then. The problem is vanisihing in any case (independent of frame rate) as soon as the web client disconnects.
+The frame rate is set to 5 pictures/second (can be changed with the variable **fps** in the code). Higher frame rates can disturb the Espalexa Hue communication while a web client is connected. The Alexa App shows then a problem with the device and control via voice command is not possible then. The problem is vanisihing in any case (independent of frame rate) as soon as the web client disconnects.
 
 With the URL **IP-Adresse:90/test** you can test the URL trigger function with Alexa. The "Ping" trigger is requested any you should hear the define notification tone from Alexa.
 
