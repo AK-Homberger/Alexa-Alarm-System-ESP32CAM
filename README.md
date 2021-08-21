@@ -6,8 +6,7 @@ This is an Alexa controlled alarm system with an ESP32-CAM and a HC-SR501 PIR mo
 
 # Features
 - The infrared module is used to detect motion in a room
-- Extendable with external [alarm sensors](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM#external-alarm-contacts)
-- The [Espalexa](https://github.com/Aircoookie/Espalexa) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
+- Extendable with external [alarm sensors](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlarmContact.md) library (Hue emulation) is used to switch On/Off motion detection via Alexa voice commands
 - The www.virtualsmarthome.xyz URL trigger service is used to start Alexa routines in case of an alarm
 - A web interface can be used to see the video stream and control the activation status
 - It can call (mobile)phones via [AVM Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
