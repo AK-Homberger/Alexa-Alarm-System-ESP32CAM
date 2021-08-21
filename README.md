@@ -50,7 +50,9 @@ Max FPS=10
 ```
 The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
 
-To avoid false alarms, the software always waits for two PIR trigger events within 30 seconds.
+With the URL **IP-Adresse:90/test** you can test the URL trigger function with Alexa. The "Ping" trigger is requested any you should hear the define notification tone from Alexa.
+
+With the URL **IP-Adresse:90/alarm_trigger?s=Sensorname** external (ESP12) alarm sensors can trigger an alarm. The provided parameter "Sensorname" is shown within the notification e-mail. 
 
 # Hardware
 The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro). See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
