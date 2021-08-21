@@ -15,13 +15,13 @@ Just change the WLAN credentials:
 const char* ssid = "ssid";
 const char* password = "password";
 ```
-And set the IP for the ESP32-CAM module:
+And set the IP address for the ESP32-CAM module and the sensor name as parameter **s**:
 
 ```
-http.begin("http://192.168.0.51:90/alarm_trigger");  // Change IP to ESP32-CAM alarm system IP
+http.begin("http://192.168.0.51:90/alarm_trigger?s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
 ```
 
-Thats all.
+Thats all. The sensor name is shown in the alarm e-mail.
 
 For programming the device, you need again the USB-To-Serial adapter. Connect it to RX/TX and GND. Close the Flash switch and press RST. Then upload the sketch. As module you have to set "Generic ESP8266 Device" in the Arduino IDE.
 
