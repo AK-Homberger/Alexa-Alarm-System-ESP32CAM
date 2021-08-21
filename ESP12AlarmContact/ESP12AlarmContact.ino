@@ -14,7 +14,7 @@
 // External Alarm Contact Sketch for ESP32-CAM Intruder Alert System
 // With ESP deep sleep and battery CR123 (3 Volt)
 
-// Version 1.0, 08.08.2021
+// Version 1.0, 21.08.2021
 
 // Set board to generic ESP8266
 
@@ -52,7 +52,7 @@ void setup() {
   }
 
   HTTPClient http;
-  http.begin("http://192.168.0.51:90/alarm_trigger");  // Change IP to ESP32-CAM alarm system IP
+  http.begin("http://192.168.0.51:90/alarm_trigger%s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
   http.GET();
   http.end();
 
