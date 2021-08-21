@@ -256,4 +256,17 @@ Here you can find a long discussion regarding the problem: https://www.letscontr
 
 A good solution for me was an ferrite ring for the cabling between the ESP32-CAM and the HC-SR501 together with a reduction of the maximum TX (send) power of the WLAN interface to 15 dBm.
 
+```
+// Change WiFi protocol and TX (send) power level to reduce interference of WLAN with PIR detection
+
+  // Set either 802.11bg or 802.11bgn protocol (setting is persistant)
+  //esp_wifi_set_protocol(WIFI_IF_STA, WIFI_PROTOCOL_11B | WIFI_PROTOCOL_11G);
+  //esp_wifi_set_protocol(WIFI_IF_STA, WIFI_PROTOCOL_11B | WIFI_PROTOCOL_11G | WIFI_PROTOCOL_11N);
+
+  // Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
+  esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
+```
+If thats not sufficiant, you can try to change the WLAN protocol in addition to 802.11bg or reduce the power further.
+
+
 ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
