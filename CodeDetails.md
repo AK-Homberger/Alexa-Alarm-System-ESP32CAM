@@ -254,6 +254,6 @@ The effect is, that you see strange false detections from time to time without a
 
 Here you can find a long discussion regarding the problem: https://www.letscontrolit.com/forum/viewtopic.php?t=671
 
-A good solution for me was an ferrite ring for the cabling between the ESP32-CAM and the HC-SR501.
+A good solution for me was an ferrite ring for the cabling between the ESP32-CAM and the HC-SR501 together with a reduction of the maximum TX (send) power of the WLAN interface to 15 dBm.
 
 ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
