@@ -266,7 +266,7 @@ A good solution for me was an ferrite ring for the cabling between the ESP32-CAM
   // Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
   esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
 ```
-If thats not sufficiant, you can try to change the WLAN protocol in addition to 802.11bg or reduce the power further.
+If that's not sufficiant, you can try to change the WLAN protocol in addition to 802.11bg or reduce the power further.
 
 
 ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
