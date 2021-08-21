@@ -230,4 +230,4 @@ If you are interested in code details and explanations please read [here](https:
 - Power Connector [Link](https://www.reichelt.de/steckverbinder-dc-buchse-zum-einbau-delock-89910-p259482.html?&nbc=1)
 
 # Updates:
-- 08.08.21: Version 1.0: Initial version.
+- 21.08.21: Version 1.0: Initial version.
