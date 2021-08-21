@@ -47,22 +47,19 @@ table {
   <p><img id="stream" src=""></p>
 
   <table>
-    <tr>
-    <td>Alarm sensor:</td><td style="width:160px"><span style="color:white;" id='psa'></span></td><td> 
-    </tr>
-    <tr>
-    <td>Alarm state:</td><td style="width:160px"><span style="color:white;" id='as'></span></td><td> 
-    </tr>
-    </table>
+    <tr><td style="text-align:right;">Alarm sensor:</td><td style="color:white;"><span id='psa'></span></td></tr>
+    <tr><td style="text-align:right;">Alarm state:</td><td style="color:white;"><span id='as'></span></td></tr>
+  </table>
+
   <hr>
   
   <p>
   <input type="button" class="button" value=" On " onclick="button_clickedOn()"> 
   <input type="button" class="button" value="Off" onclick="button_clickedOff()"> 
   </p>
+  
   <hr>
-  
-  
+    
   <script>
     
     document.addEventListener("DOMContentLoaded", function(event) {

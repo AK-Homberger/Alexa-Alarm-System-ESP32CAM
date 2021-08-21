@@ -12,7 +12,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// Alexa controlled alarm system with ESP32CAM and SR501 PIR module
+// Alexa controlled alarm system with ESP32-CAM and HC-SR501 PIR module
 //
 // - Is using Espalexa Alexa library (Hue emulation) to switch On/Off motion detection via Alaxa voice commands
 // - Is using www.virtualsmarthome.xyz URL trigger service to start Alexa routines
@@ -20,9 +20,10 @@
 // - Can call phones via fritzbox TR-064 API
 // - Can send e-mail notifications with picture via gmail account
 //
-// Version 1.0 - 08.08.2021
+// Version 1.0 - 21.08.2021
 
 #include <Arduino.h>
+#include <esp_wifi.h>
 #include <WiFi.h>
 #include <ESPmDNS.h>
 #include <WiFiClient.h>
@@ -50,7 +51,7 @@
 #define CAMERA_MODEL_AI_THINKER  // Camera model for ESP32-CAM
 #include "camera_pins.h"
 
-#define PIR_SENSOR_PIN 2    // PIR sensor connected to GPIO 2 on ESP32CAM
+#define PIR_SENSOR_PIN 2    // PIR sensor connected to GPIO 2 on ESP32-CAM
 #define ARM_DELAY 60000     // 60 seconds delay after Alexa On command before armed
 #define ALARM_DELAY 15000   // 15 seconds delay to allow Alexa Off command before alarm is raised
 #define ALARM_WAIT 300000   // 5 minutes wait time between alarms
@@ -95,6 +96,7 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
                             };
 
 //*******************************************************************************
+
 WiFiClientSecure client;            // Create HTTPS client
 WiFiUDP ntpUDP;                     // Create UDP object
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 7200); // Define NTP Client to get time
@@ -121,8 +123,9 @@ int double_counter = 0;             // To count double movements
 boolean wifiConnected = false;      // WiFi connection status
 camera_fb_t* fb;                    // Frame buffer pointer for picture from camera
 unsigned long picture_timer = 0;    // Time between pictures send to web client
-static int fps = 10;                // Target pictures per second
+static int fps = 5;                 // Target pictures per second
 int max_fps = 0;                    // Maximum FPS measured
+String alarm_source;                // Name of alarm source
 
 typedef enum        // States for state machine for double movement detection
 {
@@ -183,6 +186,15 @@ void setup() {
     ESP.restart();
   }
 
+  // Change WiFi protocol and TX (send) power level to reduce interference of WLAN with PIR detection
+
+  // Set either 802.11bg or 802.11bgn protocol (setting is persistant)
+  //esp_wifi_set_protocol(WIFI_IF_STA, WIFI_PROTOCOL_11B | WIFI_PROTOCOL_11G);
+  //esp_wifi_set_protocol(WIFI_IF_STA, WIFI_PROTOCOL_11B | WIFI_PROTOCOL_11G | WIFI_PROTOCOL_11N);
+
+  // Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
+  esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
+
   timeClient.begin();   // Start NTP time client to get current time
 
   client.setCACert(rootCACertificate);  // Set root CA certificate of VSH
@@ -192,20 +204,20 @@ void setup() {
     espalexa.addDevice(device);
     espalexa.begin();
   }
-  
+
   EEPROM.begin(16);
   pir_sensor_active = EEPROM.read(0);   // Read last arm/disarm state e.g. to set after reset
   if (USE_ALEXA && pir_sensor_active) device->setValue(255);  // Set Alexa state On
   if (USE_ALEXA && !pir_sensor_active) device->setValue(0);   // Set Alexa state Off
 
-  MDNS.begin(SYSTEM_NAME);
+  MDNS.begin(SYSTEM_NAME);              // Start Bonjour protocol (mDNS)
   server.begin();                       // Start web server handling
   Serial.println("Web server startet.");
   MDNS.addService("http", "tcp", 90);
 
   socket_server.listen(91);             // Start web socket server on port 91 (for streaming)
 
-  ArduinoOTA.setHostname(SYSTEM_NAME);     // Arduino OTA config and start
+  ArduinoOTA.setHostname(SYSTEM_NAME);  // Arduino OTA config and start
   ArduinoOTA.begin();
 
   g_state = WAIT_FIRST;  // Wait for first PIR signal
@@ -274,8 +286,8 @@ esp_err_t camera_init(void) {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
-  config.frame_size = FRAMESIZE_QVGA; // Frame size 1/4 VGA as required for face detection
-  config.jpeg_quality = 10;
+  config.frame_size = FRAMESIZE_QVGA; // FRAMESIZE_ + QVGA|CIF|VGA|SVGA|XGA|SXGA|UXGA
+  config.jpeg_quality = 10;           // 10-63 lower number means higher quality
   config.fb_count = 1;
 
   return esp_camera_init(&config);
@@ -388,7 +400,7 @@ void handleRoot() {
 //
 void handleGetData() {
   char Text[40];
-  String HTML_Text;
+  String JSON_Text;
 
   StaticJsonDocument<200> root;
 
@@ -398,8 +410,8 @@ void handleGetData() {
   } else if (arm) {
     root["psa"] = "Arm";
   } else {
-    //snprintf(Text, sizeof(Text), "Off (%d/%d)", single_counter, double_counter);
-    root["psa"] = "Off";
+    snprintf(Text, sizeof(Text), "Off (%d/%d)", single_counter, double_counter);
+    root["psa"] = Text;
   }
 
   if (alarm_state) {
@@ -427,8 +439,8 @@ void handleGetData() {
     root["as"] = Text;
   }
 
-  serializeJsonPretty(root, HTML_Text);
-  server.send(200, "text/plain", HTML_Text); //Send  values to client ajax request
+  serializeJsonPretty(root, JSON_Text);
+  server.send(200, "text/plain", JSON_Text); // Send JSON values to client AJAX request
 }
 
 
@@ -502,6 +514,12 @@ void handleTest() {
 // Handle external alarm trigger request
 //
 void handleTrigger() {
+
+  alarm_source = "External Trigger!";
+  if (server.args() > 0) {
+    alarm_source = server.arg(0);
+  }
+
   if (pir_sensor_active && !alarm_state) {
     capturePhotoSaveSpiffs();     // Store picture
     alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
@@ -509,7 +527,7 @@ void handleTrigger() {
     if (!SILENT_ALARM && USE_ALEXA) ReqURL(1);   // Play ping sound on Alexa if available and not SILENT_ALARM
   }
   Serial.println("External alarm request.");
-  server.send(200, "text/plain", "External Request!");
+  server.send(200, "text/plain", alarm_source);
 }
 
 
@@ -556,6 +574,7 @@ void Handle_PIR_Sensor(void) {
         capturePhotoSaveSpiffs();       // Store picture
 
         if (pir_sensor_active) {        // Sensor is active and double move detected
+          alarm_source = "Movement detected!";
           alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
           alarm_state = true;           // Set alarm status to true
           if (!SILENT_ALARM && USE_ALEXA) ReqURL(1);   // Play ping sound on Alexa if available and not SILENT_ALARM
@@ -628,7 +647,7 @@ boolean SendMail(void) {
   if (sent_mail_counter++ > 20) return false;  // Stop after 20 mails (avoid spamming in case of malfunction)
 
   Serial.println("Sending mail.");
-  snprintf(time_str, sizeof(time_str), "%02d:%02d:%02d: Movement detected!", timeClient.getHours(), timeClient.getMinutes(), timeClient.getSeconds());
+  snprintf(time_str, sizeof(time_str), "%02d:%02d:%02d: %s", timeClient.getHours(), timeClient.getMinutes(), timeClient.getSeconds(), alarm_source.c_str());
 
   EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
   fileDescriptor[0].filename = "photo.jpg";
