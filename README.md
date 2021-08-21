@@ -69,7 +69,13 @@ Just solder the wires or you can use jumper cables if using a breadboard.
 
 ![Connected2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
 
-To minimise interference of WLAN with the PIR motion detcection, the three wires to the HC-SR501 module are moved through a ferrite ring. 
+To minimise interference of WLAN with the PIR motion detcection, the three wires to the HC-SR501 module are moved through a ferrite ring. It might be necessary to reduce the TX (send) power for WLAN to minimize the interference further: 
+
+```
+// Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
+  esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
+```
+A setting to 60 = 15dbM was sufficient for my system to nearly avoid any false positives.
 
 # Software
 The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested). To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". 
