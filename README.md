@@ -40,13 +40,14 @@ You can use On/Off commands to arm/disarm the system. When armed with the web in
 
 The "Active (0)" state also shows the trigger counts for single PIR triggers. 
 
-The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown.
+The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown. The frame rate is set to 5 pictures/second (can be chnaged with the variable fps in the code).
+
 ```
 Time: 09:16:03
 Uptime: 13 (hours)
 Free Heap: 27728
 Single=6 Double=2
-Max FPS=10
+Max FPS=5
 ```
 The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
 
