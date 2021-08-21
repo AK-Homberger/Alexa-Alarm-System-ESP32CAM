@@ -52,7 +52,7 @@ void setup() {
   }
 
   HTTPClient http;
-  http.begin("http://192.168.0.51:90/alarm_trigger%s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
+  http.begin("http://192.168.0.51:90/alarm_trigger?s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
   http.GET();
   http.end();
 
