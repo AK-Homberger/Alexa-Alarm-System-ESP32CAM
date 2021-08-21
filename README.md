@@ -40,8 +40,7 @@ You can use On/Off commands to arm/disarm the system. When armed with the web in
 
 The "Active (0)" state also shows the trigger counts for single PIR triggers. 
 
-The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown. The frame rate is set to 5 pictures/second (can be changed with the variable **fps** in the code). Higher frame rates can disturb the Espalexa Hue communication while a Web client is connected. The Alexa App shows then a problem with the device and control via voice command is not possible then. The Problem is vanisihing in any case (independent of frame rate) as soon as the web client disconnects.
-
+The **IP-address:90/uptime** web request, shows the current time, the uptime (in hours), the remaining memory heap of the system and single/double PIR counters. The maximum picture rate is also shown. 
 ```
 Time: 09:16:03
 Uptime: 13 (hours)
@@ -50,6 +49,8 @@ Single=6 Double=2
 Max FPS=5
 ```
 The counters shall support the setting of the sensitivity of the PIR module. If the sensitivity is too high, then false triggers are happening. An On/Off command is setting the values to zero.
+
+The frame rate is set to 5 pictures/second (can be changed with the variable **fps** in the code). Higher frame rates can disturb the Espalexa Hue communication while a Web client is connected. The Alexa App shows then a problem with the device and control via voice command is not possible then. The Problem is vanisihing in any case (independent of frame rate) as soon as the web client disconnects.
 
 With the URL **IP-Adresse:90/test** you can test the URL trigger function with Alexa. The "Ping" trigger is requested any you should hear the define notification tone from Alexa.
 
