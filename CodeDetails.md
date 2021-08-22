@@ -267,7 +267,7 @@ A good solution for me was an ferrite ring for the cabling between the ESP32-CAM
   esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
 ```
 If that's not sufficiant, you can try to change the WLAN protocol in addition to 802.11bg or reduce the power further.
-Her is the [WLAN reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html) from Espressif explaininng the settings.
+Here is the [WLAN reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html) from Espressif explaininng the settings.
 
 
 ## [Back](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md)
