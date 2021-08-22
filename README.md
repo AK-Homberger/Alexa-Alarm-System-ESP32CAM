@@ -73,7 +73,7 @@ Just solder the wires or you can use jumper cables if using a breadboard.
 
 ![Connected2](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected2.jpg)
 
-To minimise interference of WLAN with the PIR motion detcection, the three wires to the HC-SR501 module are moved through a ferrite ring. It might be necessary to reduce the TX (send) power for WLAN to minimize the interference further: 
+To minimise interference of WLAN with the PIR motion detection, the three wires to the HC-SR501 module are moved through a ferrite ring. It might be necessary to reduce the TX (send) power for WLAN to minimize the interference further: 
 
 ```
 // Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
