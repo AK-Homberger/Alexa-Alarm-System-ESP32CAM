@@ -81,10 +81,10 @@ To minimise interference of WLAN with the PIR motion detection, the three wires 
 ```
 A setting to 60 = 15dbM was sufficient for my system to nearly avoid any false positives.
 
+A nice 3D print housing can be found [here](https://www.thingiverse.com/thing:4029564) at Thingiverse.
+
 # Software
 The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested). To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". 
-
-A nice 3D print housing can be found [here](https://www.thingiverse.com/thing:4029564) at Thingiverse.
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
@@ -233,6 +233,7 @@ If you are interested in code details and explanations please read [here](https:
 - USB to Serial Adapter [Link1](https://www.reichelt.de/entwicklerboards-microusb-buchse-auf-uart-ft232-debo-musb2uart-3-p266053.html?&nbc=1) or [Link2](https://www.amazon.de/dp/B07R17BMTL/ref=sspa_dk_detail_2?psc=1&pd_rd_i=B07R17BMTL&pd_rd_w=ctPSK&pf_rd_p=4060291c-d237-411a-a3fe-4e44df687a4d&pd_rd_wg=enKhZ&pf_rd_r=B02DJZMKW4QRHKBN627Q&pd_rd_r=829304f2-0444-4fec-88dc-e2af9109243b&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExRVI5V0dQMjFTMjg2JmVuY3J5cHRlZElkPUEwOTIzOTg1MUhUSVNEQ1M2T0lSVSZlbmNyeXB0ZWRBZElkPUEwNTM1MjQ4SldZRlhJQlI0UzNVJndpZGdldE5hbWU9c3BfZGV0YWlsJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==)
 - Power Supply 5 Volt [Link](https://www.reichelt.de/steckernetzteil-7-w-5-v-1-5-a-hnp-07-050v2-p298320.html?CCOUNTRY=445&LANGUAGE=de&nbc=1&&r=1)
 - Power Connector [Link](https://www.reichelt.de/steckverbinder-dc-buchse-zum-einbau-delock-89910-p259482.html?&nbc=1)
+- Housing [Link](https://www.thingiverse.com/thing:4029564)
 
 # Updates:
 - 21.08.21: Version 1.0: Initial version.
