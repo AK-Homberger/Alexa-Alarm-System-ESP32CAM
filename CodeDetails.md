@@ -154,7 +154,7 @@ The storage process itself is straight forward:
 4. Close the file and release the fb reserved memory: **file.close(); esp_camera_fb_return(fb);**
 
 ## SendMail
-Sending mails with the library is stright forward:
+Sending mails with the library is straight forward:
 
 ```
   EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
