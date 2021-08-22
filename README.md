@@ -84,6 +84,8 @@ A setting to 60 = 15dbM was sufficient for my system to nearly avoid any false p
 # Software
 The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested). To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". 
 
+A nice 3D print housing can be found [here](https://www.thingiverse.com/thing:4029564) at Thingiverse.
+
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
 - Partition scheme: Default 4MB with spiffs...
