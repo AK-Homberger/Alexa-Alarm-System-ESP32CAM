@@ -21,7 +21,7 @@ Just place the alarm module somewhere in your home where it can detect suspiciou
 
 ![Housing](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing.jpg)
 
-Then activate the alarm system with an Alexa voice command: **"Alexa, Alarm On"**. There is a 60 seconds arm delay time before the detector is activated. This shall allow leaving the home before the motion detector is activated. The device name can be changed in the settings section. Set the device name from "Alarm" to something special, to ensure an intruder is not guessing the device name to switch off the alarm.
+Then activate the alarm system with an Alexa voice command: **"Alexa, Alarm On"**. There is a 60 seconds arm delay time before the detector is activated. This shall allow leaving home before the motion detector is activated. The device name can be changed in the settings section. Set the device name from "Alarm" to something special, to ensure an intruder is not guessing the device name to switch off the alarm.
 
 To avoid false alarms, the detector is programmed to wait for two detected motions within 30 seconds. 
 
