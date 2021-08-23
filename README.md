@@ -14,7 +14,7 @@ This is an Alexa controlled alarm system with an ESP32-CAM and a HC-SR501 PIR mo
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
 
-The alarm system is mainly created for Alexa integration, but it works also without Alaxa. You can control it then via the web interface.
+The alarm system is mainly created for Alexa integration, but it works also without Alexa. You can control it then via the web interface.
 
 # Usage
 Just place the alarm module somewhere in your home where it can detect suspicious movements with the infrared PIR sensor. The module has to be powered with 5 Volt.
