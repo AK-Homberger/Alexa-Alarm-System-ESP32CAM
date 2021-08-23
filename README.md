@@ -61,7 +61,7 @@ With the URL **IP-Adresse:90/test** you can test the URL trigger function with A
 With the URL **IP-Adresse:90/alarm_trigger?s=Sensorname** external (ESP12) [alarm sensors](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlarmContact.md) can trigger an alarm. The provided parameter "Sensorname" is shown within the notification e-mail. 
 
 # Hardware
-The whole alarm system consists of three components only. The a 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro). See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
+The whole alarm system consists of three components only. The 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro). See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
 
 The HC-SR501 PIR motion detection sensor is connected to the ESP32-CAM with three wires. And the ESP32-CAM has to be connected to 5V and GND.
 
