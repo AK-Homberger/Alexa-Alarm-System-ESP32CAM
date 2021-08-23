@@ -29,7 +29,7 @@ If a (double)motion is detected while the detector is activated, then a alarm no
 
 A picture from the time of the second movement trigger is sent as e-mail attachment. The web interface (e.g. via [VPN](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) connection from phone to router) can be used to see the current video stream from camera.
 
-You can also use Alexas drop in function to listen to the room or even speak to the intruder.
+You can also use Alexa's drop in function to listen to the room or even speak to the intruder.
 
 To allow disarming of the detector when coming back home, there is an alarm delay time of 15 seconds defined. During this 15 seconds you can switch the module off with an **"Alexa, Alarm Off"** command.
 
