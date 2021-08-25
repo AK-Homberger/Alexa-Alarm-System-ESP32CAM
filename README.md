@@ -98,7 +98,6 @@ The following external libraries are used:
 - ArduinoWebsockets (https://github.com/gilmaimon/ArduinoWebsockets)
 - EMailSender       (https://github.com/xreef/EMailSender)
 - Espalexa          (https://github.com/Aircoookie/Espalexa)
-- NTPClient         (https://github.com/arduino-libraries/NTPClient)
 - ArduinoJson       (https://arduinojson.org/v6/doc/)
 - TR-064            (https://github.com/Aypac/Arduino-TR-064-SOAP-Library)
 
