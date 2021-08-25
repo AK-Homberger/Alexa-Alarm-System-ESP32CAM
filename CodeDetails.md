@@ -15,7 +15,7 @@ In the main sketch the web requests are handled with the following functions:
   server.on("/test", handleTest);         // Handle test request
   server.on("/alarm_trigger", handleTrigger); // Handle external trigger
 ````
-The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/5447aa7a7ca47a156a6f3a29262c41ef83831091/AlexaAlarmSystem/AlexaAlarmSystem.ino#L170) are called when an URL is requested from the web client.
+The events and callback functions are defined in setup(). The [functions](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/00e843439f7dd3841dc0ec2ae7d3f28fd9c6c2a7/AlexaAlarmSystem/AlexaAlarmSystem.ino#L170) are called when an URL is requested from the web client.
 
 The status data is passed to the web client in the **handleGetData()** function (as JSON data).
 
@@ -157,6 +157,10 @@ The storage process itself is straight forward:
 Sending mails with the library is straight forward:
 
 ```
+  getLocalTime(&timeinfo);
+  strftime(time_str, sizeof(time_str), "%T", &timeinfo);
+  snprintf(msg_str, sizeof(msg_str), "%s: %s", time_str, alarm_source.c_str());
+
   EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
   fileDescriptor[0].filename = "photo.jpg";
   fileDescriptor[0].url = FILE_PHOTO;
@@ -168,7 +172,7 @@ Sending mails with the library is straight forward:
 
   EMailSender::EMailMessage message;    // Create email message
   message.subject = "Intruder Alert!";
-  message.message = time_str;
+  message.message = msg_str;
 
   EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
 ```
