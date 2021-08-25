@@ -26,10 +26,10 @@
 #include <esp_wifi.h>
 #include <WiFi.h>
 #include <ESPmDNS.h>
+#include <time.h>
 #include <WiFiClient.h>
 #include <HTTPClient.h>
 #include <WebServer.h>
-#include <WiFiUdp.h>
 #include <EEPROM.h>
 #include <ArduinoOTA.h>
 #include <esp_camera.h>
@@ -41,7 +41,6 @@
 #include <ArduinoWebsockets.h>  // https://github.com/gilmaimon/ArduinoWebsockets
 #include <EMailSender.h>        // https://github.com/xreef/EMailSender
 #include <Espalexa.h>           // https://github.com/Aircoookie/Espalexa
-#include <NTPClient.h>          // https://github.com/arduino-libraries/NTPClient
 #include <ArduinoJson.h>        // https://arduinojson.org/v6/doc/
 #include <tr064.h>              // https://github.com/Aypac/Arduino-TR-064-SOAP-Library
 
@@ -98,8 +97,6 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
 //*******************************************************************************
 
 WiFiClientSecure client;            // Create HTTPS client
-WiFiUDP ntpUDP;                     // Create UDP object
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 7200); // Define NTP Client to get time
 WebServer server(90);               // Create web server on port 90. Port 80 is used for Alexa service
 
 using namespace websockets;
@@ -195,9 +192,8 @@ void setup() {
   // Parameter for send power is in 0.25dBm steps. Allowed range is 8 - 84 corresponding to 2dBm - 20dBm.
   esp_wifi_set_max_tx_power(60);        // Set TX level to 15dBm
 
-  timeClient.begin();   // Start NTP time client to get current time
-
-  client.setCACert(rootCACertificate);  // Set root CA certificate of VSH
+  // Init time with GMT offset, daylight saving offset and NTP server
+  configTime(3600, 3600, "europe.pool.ntp.org");
 
   if (USE_ALEXA) {                      // Add Alexa device with device name and set callback function
     device = new EspalexaDevice(AlexaName, AlertChanged);
@@ -490,8 +486,10 @@ void handleOff() {
 void handleUptime() {
   char time_str[40];
   char text[120];
+  struct tm timeinfo;
 
-  snprintf(time_str, sizeof(time_str), "%02d:%02d:%02d", timeClient.getHours(), timeClient.getMinutes(), timeClient.getSeconds());
+  getLocalTime(&timeinfo);
+  strftime(time_str, sizeof(time_str), "%T", &timeinfo);
 
   snprintf(text, sizeof(text), "Time: %s\nUptime: %d (hours)\nFree Heap: %d\nSingle=%d Double=%d\nMax FPS=%d\n",
            time_str, millis() / 3600000, ESP.getFreeHeap(), single_counter, double_counter, max_fps);
@@ -612,6 +610,8 @@ void Handle_PIR_Sensor(void) {
 void ReqURL(int i) {
   HTTPClient https;
 
+  client.setCACert(rootCACertificate);// Set root CA certificate of VSH
+
   if (https.begin(client, URL[i])) {  // Set HTTPS request for URL i
 
     int httpCode = https.GET();       // Request URL
@@ -642,12 +642,17 @@ void ReqURL(int i) {
 // Send alarm mail with alarm time and picture
 //
 boolean SendMail(void) {
-  char time_str[80];
+  char time_str[20];
+  char msg_str[80];
+  struct tm timeinfo;
 
   if (sent_mail_counter++ > 20) return false;  // Stop after 20 mails (avoid spamming in case of malfunction)
 
   Serial.println("Sending mail.");
-  snprintf(time_str, sizeof(time_str), "%02d:%02d:%02d: %s", timeClient.getHours(), timeClient.getMinutes(), timeClient.getSeconds(), alarm_source.c_str());
+
+  getLocalTime(&timeinfo);
+  strftime(time_str, sizeof(time_str), "%T", &timeinfo);
+  snprintf(msg_str, sizeof(msg_str), "%s: %s", time_str, alarm_source.c_str());
 
   EMailSender::FileDescriptior fileDescriptor[1];   // Attach picture
   fileDescriptor[0].filename = "photo.jpg";
@@ -660,7 +665,7 @@ boolean SendMail(void) {
 
   EMailSender::EMailMessage message;    // Create email message
   message.subject = "Intruder Alert!";
-  message.message = time_str;
+  message.message = msg_str;
 
   EMailSender::Response resp = emailSend.send(M_DEST, message, attachs);  // Send email
   Serial.println("Sending status: ");   // Print status
@@ -715,7 +720,6 @@ void handle_updates(void) {
   Handle_PIR_Sensor();            // Handle PIR sensor detection changes
   server.handleClient();          // Handle web server requests
   Check_WiFi();                   // Check WiFi connection status and try to reconnect if connection is lost
-  timeClient.update();            // Handle NTP client time server updates
 }
 
 
