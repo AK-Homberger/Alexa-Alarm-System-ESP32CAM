@@ -2,6 +2,7 @@
 This is an Alexa controlled alarm system with an ESP32-CAM and a HC-SR501 PIR motion detection module.
 
 ![connected](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Connected.jpg)
+![Housing]https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Housing.jpg
 ![Web](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/web-interface.png)
 
 # Features
