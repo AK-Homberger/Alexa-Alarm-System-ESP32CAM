@@ -109,11 +109,11 @@ You need an external (FTDI) programmer to install the (initial) sketch on the ES
 
 For programming you have to connect IO0 to GND, RX/TX (crossed) and 5V/GND. If you have the power supply already connected, then do not connect the 5V cable from the adapter.
 
-Then press the "boot" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
+Then press the "RST" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
 
-For normal start open IO0 from GND and press "boot" again.
+For normal start open IO0 from GND and press "RST" again.
 
-After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "boot" button after the OTA process is finished, to start the sketch.
+After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "RST" button after the OTA process is finished, to start the sketch.
 
 After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Philips Hue").
 
