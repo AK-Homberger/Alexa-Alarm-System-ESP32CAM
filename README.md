@@ -205,7 +205,9 @@ The certificate is used to authenticate the identity of the web server. **The ro
 
 To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) (there might also a new Root CA with different name be shown) and then on "PEM (Certificate)". The certificate text have to be copied into the "certificate.h" sketch to update.
 
-According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/) the issuer of the Virtualsmarthome.xyz certificate, it might be necessary to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem
+According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/), the issuer of the Virtualsmarthome.xyz certificate, it might be necessary to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem
+
+But I will monitor the situation end of Sptember anyway and do the necessary changes in the code.
 
 ## Crate Alexa Routines
 In the Alexa App you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
