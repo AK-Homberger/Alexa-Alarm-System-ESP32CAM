@@ -198,6 +198,8 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
 The first URL is the alarm routine trigger and the second the notification routine trigger.
 Use the JSON variant (short response). But all three variants will work.
 
+# Certificate Updates
+
 For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). 
 
 The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then. The current Virtualsmarthome.xyz certificate will also expire end of September.
