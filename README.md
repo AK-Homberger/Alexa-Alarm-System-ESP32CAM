@@ -199,7 +199,6 @@ The first URL is the alarm routine trigger and the second the notification routi
 Use the JSON variant (short response). But all three variants will work.
 
 ## Certificate Updates
-
 For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). 
 
 The certificate is used to authenticate the identity of the web server. **The certificate will expire in September 2021**. It has to be updated then. The current Virtualsmarthome.xyz certificate will also expire end of September.
@@ -208,6 +207,7 @@ To perform the update (with Firefox browser) just go to the https://www.virtuals
 
 According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/) the issuer of the Virtualsmarthome.xyz certificate, it might be necessry to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem
 
+## Crate Alexa Routines
 In the Alexa App you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
