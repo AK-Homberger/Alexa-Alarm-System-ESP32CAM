@@ -198,7 +198,7 @@ const char *URL[] PROGMEM = {"https://www.virtualsmarthome.xyz/url_routine_trigg
 The first URL is the alarm routine trigger and the second the notification routine trigger.
 Use the JSON variant (short response). But all three variants will work.
 
-# Certificate Updates
+## Certificate Updates
 
 For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). 
 
