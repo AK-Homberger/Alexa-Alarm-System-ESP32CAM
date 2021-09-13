@@ -22,7 +22,7 @@ The status data is passed to the web client in the **handleGetData()** function 
 A good introduction to Javascript/AJAX can be found here: https://www.w3schools.com/js/js_ajax_intro.asp
 
 ## Double Movement Detection with FSM
-The different states of movement detection and the alarm wait time is implemented as [Finite State Machine](https://en.wikipedia.org/wiki/Finite-state_machine). This is an easy way to maintan different states in a sketch, avoiding complex if/then/else constructs.
+The different states of movement detection and the alarm wait time is implemented as [Finite State Machine](https://en.wikipedia.org/wiki/Finite-state_machine). This is an easy way to maintain different states in a sketch, avoiding complex if/then/else constructs.
 
 The states are defined here:
 
