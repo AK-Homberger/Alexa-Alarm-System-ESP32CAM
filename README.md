@@ -235,6 +235,13 @@ The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-
 # Code Details
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
 
+# VPN Alternatives
+If you are using a Fritzbox router with an IPv4 address then setting up a VPN connection fom your phone (Apple/Android) is staright forward. Just follow the instructions on the [AVN](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) web site.
+
+Due to availability issues for IPv4 addresses most user will now have IPv6 connection and DS-Lite from internet service provider.
+Then a VPN connection to the own network is a bit more difficult. But you can use an [OpenVPN](https://www.ionos.de/digitalguide/server/konfiguration/vpn-server-einrichten-via-raspberry-pi-und-openvpn/) server on a Raspberry device in your local network together with an commercial portmapper service (e.g. feste-ip.net). On the phone you can the install one of the available OpenVPN client apps.
+
+
 # Parts
 - ESP32-CAM [Link](https://www.reichelt.de/index.html?ACTION=446&LA=2&nbc=1&q=esp32cam)
 - HC-SR501 PIR Sensor [Link](https://www.reichelt.de/raspberry-pi-infrarot-bewegungsmelder-pir-hc-sr501-rpi-hc-sr501-p224216.html)
