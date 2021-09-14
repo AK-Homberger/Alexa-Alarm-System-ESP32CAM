@@ -239,7 +239,7 @@ If you are interested in code details and explanations please read [here](https:
 If you are using a Fritzbox router with an IPv4 address then setting up a VPN connection fom your phone (Apple/Android) is staright forward. Just follow the instructions on the [AVM](https://avm.de/service/vpn/tipps-tricks/vpn-verbindung-zur-fritzbox-unter-apple-ios-zb-iphone-einrichten/) web site.
 
 Due to availability issues for IPv4 addresses most user will now have IPv6 connection and DS-Lite from their internet service provider.
-Then a VPN connection to the own network is a bit more difficult. But you can use an [OpenVPN](https://www.ionos.de/digitalguide/server/konfiguration/vpn-server-einrichten-via-raspberry-pi-und-openvpn/) server on a Raspberry device in your local network together with an commercial portmapper service (e.g. [feste-ip.net](feste-ip.net)). On the phone you can the install one of the available OpenVPN client apps.
+Then a VPN connection to the own network is a bit more difficult. But you can use an [OpenVPN](https://www.ionos.de/digitalguide/server/konfiguration/vpn-server-einrichten-via-raspberry-pi-und-openvpn/) server on a Raspberry device in your local network together with an commercial portmapper service (e.g. [feste-ip.net](http://www.feste-ip.net)). On the phone you can the install one of the available OpenVPN client apps.
 
 
 # Parts
