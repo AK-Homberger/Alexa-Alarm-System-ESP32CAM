@@ -201,7 +201,7 @@ Use the JSON variant (short response). But all three variants will work.
 ## Certificate Updates
 For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). 
 
-The certificate is used to authenticate the identity of the web server. **The curent root certificate "DST Root CA X3" will expire end of September 2021**. It has to be updated then. The current Virtualsmarthome.xyz certificate will also expire in November 2021.
+The certificate is used to authenticate the identity of the web server. **The current root certificate "DST Root CA X3" will expire end of September 2021**. It has to be updated then. The current Virtualsmarthome.xyz certificate will also expire in November 2021.
 
 To perform the update (with Firefox browser) just go to the https://www.virtualsmarthome.xyz web site and click on the lock symbol left to the URL. Then show details of connection, further information and show certificate. Then click on [DST Root CA X3](https://github.com/AK-Homberger/Alexa-Face-Recognition-with-ESP32CAM/blob/main/Root-Certificate.png) (there might also a new Root CA with different name be shown) and then on "PEM (Certificate)". The certificate text have to be copied into the "certificate.h" sketch to update.
 
