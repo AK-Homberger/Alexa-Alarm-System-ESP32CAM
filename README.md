@@ -241,7 +241,7 @@ If you are using a Fritzbox router with an IPv4 address, then setting up a VPN c
 Due to availability issues for IPv4 addresses most user will now have an IPv6 connection and DS-Lite from their internet service provider.
 Then a VPN connection to the own network is a more difficult. But you can use an [OpenVPN](https://openvpn.net/) server on a Raspberry [Link1](https://www.ionos.de/digitalguide/server/konfiguration/vpn-server-einrichten-via-raspberry-pi-und-openvpn/), [Link2](https://openvpn.net/vpn-server-resources/install-openvpn-access-server-on-raspberry-pi/) device in your local network together with an commercial portmapper service (e.g. [feste-ip.net](https://www.feste-ip.net/dslite-ipv6-portmapper/allgemeine-informationen/)). On the phone you can the install one of the available OpenVPN [client apps](https://openvpn.net/vpn-client/).
 
-OpenVPN will also work on IPv4 router which don't have a VPN solution embedded.
+OpenVPN will also work on IPv4 router which dosen't have a VPN solution embedded.
 
 
 # Parts
