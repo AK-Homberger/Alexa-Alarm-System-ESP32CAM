@@ -209,7 +209,7 @@ According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expirat
 
 But I will monitor the situation end of Sptember/November 2021 anyway and do necessary changes in the code.
 
-## Crate Alexa Routines
+## Create Alexa Routines
 In the Alexa App you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
 
 ![Alexa1](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/Alexa1.png)
