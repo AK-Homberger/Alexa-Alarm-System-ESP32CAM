@@ -109,6 +109,8 @@ You need an external (FTDI) programmer to install the (initial) sketch on the ES
 
 For programming you have to connect IO0 to GND, RX/TX (crossed) and 5V/GND. If you have the power supply already connected, then do not connect the 5V cable from the adapter.
 
+**Caution:** The 5V connection shown in an earlier version of this project was wrong (CTS instead of VCC connection).
+
 Then press the "RST" button on the ESP32-CAM. After that, you can start the upload process within the Arduino IDE (with FTDI USB-Serial port selected).
 
 For normal start open IO0 from GND and press "RST" again.
