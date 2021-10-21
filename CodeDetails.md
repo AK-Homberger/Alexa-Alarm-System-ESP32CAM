@@ -107,7 +107,7 @@ The structure is always the same:
 - if() block
 - Set new state
 
-You can see that after the sencond movement detection a picture is stored with the function **capturePhotoSaveSpiffs()**.
+You can see that after the second movement detection a picture is stored with the function **capturePhotoSaveSpiffs()**.
 
 ## Storage of Photo to SPIFFS
 The e-mail library requires a photo either stored to SD or to the internal [SPIFFS](https://www.tutorialspoint.com/esp32_for_iot/esp32_for_iot_spiffs_storage.htm) file system.
