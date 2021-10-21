@@ -4,7 +4,7 @@ The code is internally well commented. But this additional information might hel
 ## Web Interface
 The web interface is created with HTML and Javascript(AJAX). The HTML/CSS and Javascript code is stored in the [index.h](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/index.h) file and can be easily changed.
 
-In the main sketch the web requests are handled with the following functions:
+In the main sketch, the web requests are handled with the following functions:
 
 ```
   server.on("/", handleRoot);             // This is the display page
