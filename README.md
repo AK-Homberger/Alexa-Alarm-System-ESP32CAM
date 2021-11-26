@@ -256,5 +256,6 @@ OpenVPN will also work with an IPv4 router without a VPN solution integrated.
 - Housing [Link](https://www.thingiverse.com/thing:4029564)
 
 # Updates:
-- 21.08.21: Version 1.0: Initial version.
 - 26.11.21: Version 1.1: Store picture to SPIFFS only when active. 
+- 21.08.21: Version 1.0: Initial version.
+
