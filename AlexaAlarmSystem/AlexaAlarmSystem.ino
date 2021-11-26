@@ -568,10 +568,9 @@ void Handle_PIR_Sensor(void) {
 
     case WAIT_SECOND: // Check for double movement: State is WAIT_SECOND and PIR sensor high within 30 seconds.
       if (PIR_On && millis() < double_time + 30000) {
-
-        capturePhotoSaveSpiffs();       // Store picture
-
+        
         if (pir_sensor_active) {        // Sensor is active and double move detected
+          capturePhotoSaveSpiffs();     // Store picture
           alarm_source = "Movement detected!";
           alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
           alarm_state = true;           // Set alarm status to true
