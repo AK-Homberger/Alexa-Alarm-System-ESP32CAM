@@ -58,9 +58,9 @@ The counters shall support the setting of the sensitivity of the PIR module. If 
 
 The frame rate is set to 5 pictures/second (can be changed with the variable **fps** in the code). Higher frame rates can disturb the Espalexa Hue communication while a web client is connected. The Alexa App shows then a problem with the device and control via voice command is not possible then. The problem is vanisihing in any case (independent of frame rate) as soon as the web client disconnects.
 
-With the URL **IP-Adresse:90/test** you can test the URL trigger function with Alexa. The "Ping" trigger is requested and you should hear the define notification tone from Alexa.
+With the URL **IP-address:90/test** you can test the URL trigger function with Alexa. The "Ping" trigger is requested and you should hear the define notification tone from Alexa.
 
-With the URL **IP-Adresse:90/alarm_trigger?s=Sensorname** external (ESP12) [alarm sensors](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlarmContact.md) can trigger an alarm. The provided parameter "Sensorname" is shown within the notification e-mail. 
+With the URL **IP-address:90/alarm_trigger?s=Sensorname** external (ESP12) [alarm sensors](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlarmContact.md) can trigger an alarm. The provided parameter "Sensorname" is shown within the notification e-mail. 
 
 # Hardware
 The whole alarm system consists of three components only. The 5 Volt power supply, an ESP32-CAM and the HC-SR501 PIR sensor (less then 20 Euro). See [Parts](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#parts) section for order details.
