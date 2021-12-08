@@ -245,7 +245,10 @@ An additionl library (Adafruit_CCS811) has to be istalled in the Arduino IDE.
 The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin on the CCS811 has to be conneted to GND. 
 The sensor can be screwed on the backside of the housing.
 
-That's all. The air quality is the shown in the web interface. The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
+That's all. The air quality is the shown in the web interface. 
+![AirQuality]https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/AirQuality.png
+
+The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
 If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just define the additinal VSH URL trigger in the code and a Alexa notification routine in the Alexa App.
 
 The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor shuld run permanently for 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a hat-up time (20 minutes). The retore is mainained automatically in the code.
@@ -254,6 +257,14 @@ But storing a new baseline is requested with an URL: "**IP-address:90/set_baseli
 According to the datasheet storing of new baseline should be done on a dayily bases during the first month and then on a monthly basis.
 The currently calculated baseline and the stored value is shown in the "uptime" request.
 
+```
+Time: 16:22:37
+Uptime: 72 (hours)
+Free Heap: 165984
+Single=0 Double=0
+Max FPS=5
+Baseline=0xa9bd, Stored=0xa9bd
+```
 
 # VPN Alternatives
 Accessing the web interface securely from the outside requires a VPN connection from the smartphone to the ESP32CAM in the home network. If you are using a Fritzbox router with an IPv4 address, then setting up a VPN connection fom your phone (iPhone/Android) is straight forward. Just follow the instructions on the AVM web site for [Android](https://en.avm.de/service/vpn/tips-tricks/setting-up-a-vpn-connection-to-fritzbox-in-android/) and [Apple](https://en.avm.de/service/vpn/tips-tricks/setting-up-vpn-connection-to-fritzbox-in-apple-os-ios-eg-iphone/) devices.
