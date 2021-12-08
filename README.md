@@ -246,6 +246,7 @@ The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin o
 The sensor can be screwed on the backside of the housing.
 
 That's all. The air quality is the shown in the web interface. 
+
 ![AirQuality](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/AirQuality.png)
 
 The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
