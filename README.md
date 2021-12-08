@@ -284,7 +284,7 @@ OpenVPN will also work with an IPv4 router without a VPN solution integrated.
 - Power Supply 5 Volt [Link](https://www.reichelt.de/steckernetzteil-7-w-5-v-1-5-a-hnp-07-050v2-p298320.html?CCOUNTRY=445&LANGUAGE=de&nbc=1&&r=1)
 - Power Connector [Link](https://www.reichelt.de/steckverbinder-dc-buchse-zum-einbau-delock-89910-p259482.html?&nbc=1)
 - Housing [Link](https://www.thingiverse.com/thing:4029564)
-- Option CCS811 Air Quality Sensor [Link](https://www.reichelt.de/de/en/developer-boards-air-quality-sensor-ccs811-debo-sens-ccs811-p253655.html?&nbc=1)
+- Option: CCS811 Air Quality Sensor [Link](https://www.reichelt.de/de/en/developer-boards-air-quality-sensor-ccs811-debo-sens-ccs811-p253655.html?&nbc=1)
 
 # Updates:
 - 26.11.21: Version 1.1: Store picture to SPIFFS only when active. 
