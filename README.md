@@ -248,11 +248,11 @@ The sensor can be screwed on the backside of the housing.
 That's all. The air quality is the shown in the web interface. The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
 If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just define the additinal URL trigger and Alexa notification routine in the cade.
 
-The CCS811 requires a special burn in time and baseline handling. According to the datasheet the sensor shuld run permanently for 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor. But after the hat-up time (20 minutes). The retore is mainained automatically in the code.
+The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor shuld run permanently for 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a hat-up time (20 minutes). The retore is mainained automatically in the code.
 
 But storing a new baseline is requested with an URL: "**IP-address:90/set_baseline**
-According to the datasheet storing of new baseline should be done on a dayily bases during the firts mont and then on a monthly basis.
-The current calculated baseline and the stored value is shown in the "uptime" request.
+According to the datasheet storing of new baseline should be done on a dayily bases during the first month and then on a monthly basis.
+The currently calculated baseline and the stored value is shown in the "uptime" request.
 
 
 # VPN Alternatives
