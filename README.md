@@ -13,7 +13,7 @@ This is an Alexa controlled alarm system with an ESP32-CAM and a HC-SR501 PIR mo
 - It can call (mobile)phones via [AVM Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
-- Optional: Integration of a [CCS811 air quality sensor](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#extended-version-with-additional-ccs811-air-qualiy-sensor)
+- Optional: Integration of a [CCS811 air quality sensor](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#option-extended-version-with-additional-ccs811-air-qualiy-sensor)
 
 The alarm system is mainly created for Alexa integration, but it works also without Alexa. You can control it then via the web interface.
 
