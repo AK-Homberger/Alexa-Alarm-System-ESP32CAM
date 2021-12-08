@@ -245,7 +245,7 @@ An additionl library (Adafruit_CCS811) has to be istalled in the Arduino IDE.
 The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin on the CCS811 has to be conneted to GND. 
 The sensor can be screwed on the backside of the housing.
 
-That's all. The air quality is the shown in the web interface. 
+That's all. The air quality is shown in the web interface. 
 
 ![AirQuality](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/AirQuality.png)
 
