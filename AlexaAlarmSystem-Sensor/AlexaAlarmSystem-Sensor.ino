@@ -175,7 +175,7 @@ void setup() {
     Serial.println("SPIFFS mounted successfully");
   }
 
-  I2CSensors.begin(I2C_SDA, I2C_SCL, 100000);   // Configure I2C interface with definde ports
+  I2CSensors.begin(I2C_SDA, I2C_SCL, 100000);   // Configure I2C interface with defined ports
 
   if (!ccs.begin(0x5A, &I2CSensors)) {          // Start CCS811 sensor
     Serial.println("Failed to start sensor! Please check your wiring.");
@@ -183,8 +183,8 @@ void setup() {
     ESP.restart();
   }
 
-  while (!ccs.available());            // Wait for CCS811 sensor ready
-  ccs.setEnvironmentalData(45, 21);    // Set humidity and temprature values 
+  while (!ccs.available());            // Wait for CCS811 sensor to be ready
+  ccs.setEnvironmentalData(45, 21);    // Set humidity and temperature values 
 
   pinMode(PIR_SENSOR_PIN, INPUT);      // PIR sensor pin as Input
   pinMode(LED_BUILTIN, OUTPUT);        // Internal LED as output
@@ -193,8 +193,8 @@ void setup() {
   delay(100);
   digitalWrite(LED_BUILTIN, LOW);
 
-  ledcSetup(2, 5000, 8);                    // Setup channel 1 with 8000 Hz
-  ledcAttachPin(LED_BUILTIN, 2);
+  ledcSetup(2, 5000, 8);                  // Setup channel 1 with 8000 Hz
+  ledcAttachPin(LED_BUILTIN, 2);          // Attach internal LED to channel 2 (for dimming)  
 
   server.on("/", handleRoot);             // This is the display page
   server.on("/get_data", handleGetData);  // To get updates of values
@@ -629,7 +629,7 @@ void Handle_PIR_Sensor(void) {
       if (PIR_On && millis() < double_time + 30000) {
 
         if (pir_sensor_active) {        // Sensor is active and double move detected
-          capturePhotoSaveSpiffs();       // Store picture
+          capturePhotoSaveSpiffs();     // Store picture
           alarm_source = "Movement detected!";
           alarm_time = millis();        // Store time of alarm (to measure alarm delay for disarm)
           alarm_state = true;           // Set alarm status to true
@@ -761,20 +761,20 @@ void read_ccs(void) {
       eCO2 = ccs.geteCO2();   // Set eCO2 vlaue
     }
     else {
-      eCO2 = 0;               // No valid date. Set to 0
+      eCO2 = 0;               // No valid data. Set to 0
     }
 
     if (eCO2 > BAD_AIR + 200 && millis() > timer2 + 3600 * 1000) {
-      ReqURL(2);              // Alexa bad air quality notication (once per hour)
+      ReqURL(2);              // Alexa bad air quality notification (once per hour)
       timer2 = millis();
     }
 
     if (!pir_sensor_active) { // Set internal LED ON if air cuality is bad
       if (eCO2 >= BAD_AIR && led_state == false) {
-        ledcWrite(2, 1);
+        ledcWrite(2, 1);      // Dim LED to lowest level
         led_state = true;
       }
-      if (eCO2 < BAD_AIR - 100 && led_state == true) {  // Air is better afain. LED OFF
+      if (eCO2 < BAD_AIR - 100 && led_state == true) {  // Air is better again. LED OFF.
         ledcWrite(2, 0);
         led_state = false;
       }
@@ -786,7 +786,7 @@ void read_ccs(void) {
 
 
 //*******************************************************************************
-// Restore CCS811 air quality sensor baseline after 20 minutes of operation (heat up)
+// Restore CCS811 air quality sensor baseline after 20 minutes of operation (heat-up time)
 //
 void restore_baseline(void) {
   static bool written = false;
@@ -833,7 +833,7 @@ void handle_updates(void) {
   server.handleClient();          // Handle web server requests
   Check_WiFi();                   // Check WiFi connection status and try to reconnect if connection is lost
   read_ccs();                     // Read CCS811 air quality sensor (eCO2)
-  restore_baseline();             // Check if vaseline has to be resored (20 minutes after start)
+  restore_baseline();             // Check if baseline has to be restored (20 minutes after start)
 }
 
 
