@@ -256,7 +256,7 @@ The CCS811 requires a special burn in time and baseline handling. According to t
 
 But storing a new baseline is requested with an URL: **IP-address:90/set_baseline**
 
-According to the datasheet, storing of a new baseline should be done on a dayily basis during the first month and then on a monthly basis.
+According to the datasheet and [application note](https://www.sciosense.com/wp-content/uploads/documents/Application-Note-Baseline-Save-and-Restore-on-CCS811.pdf), storing of a new baseline should be done on a dayily basis during the first month and then on a monthly basis.
 The currently calculated baseline and the stored value is shown in the "uptime" request.
 
 ```
