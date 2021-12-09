@@ -238,7 +238,7 @@ The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
 
 # Option: Extended Version with additional CCS811 Air Quality Sensor
-It is easy to extend the ESP32-CAM alarm system with an additional [CCS811](https://www.adafruit.com/product/3566) air quality sensor. 
+It is easy to extend the ESP32-CAM alarm system with an additional [CCS811](https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor) air quality sensor. 
 The extended programm is stored [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem-Sensor).
 An additional library (Adafruit_CCS811) has to be installed in the Arduino IDE.
 
