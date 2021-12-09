@@ -252,7 +252,7 @@ That's all. The air quality is shown in the web interface.
 The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
 If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just create an additional URL trigger on the VSH web site and store the new URL in the code. Then add an Alexa notification routine in the Alexa App for the new trigger.
 
-The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor should first run permanently for about 48 hours. After that time the sensor values should stabelise. The CCS811 maintains internally a beseline to calculate the good air level over time. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a heat-up time of 20 minutes. The restore is maintained automatically in the code.
+The CCS811 requires a special burn in time and baseline handling. According to the [datasheet](https://cdn.sparkfun.com/assets/2/c/c/6/5/CN04-2019_attachment_CCS811_Datasheet_v1-06.pdf), the sensor should first run permanently for about 48 hours. After that time the sensor values should stabelise. The CCS811 maintains internally a beseline to calculate the good air level over time. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a heat-up time of 20 minutes. The restore is maintained automatically in the code.
 
 But storing a new baseline is requested with an URL: **IP-address:90/set_baseline**
 
