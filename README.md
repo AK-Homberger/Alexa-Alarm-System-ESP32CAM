@@ -13,7 +13,7 @@ This is an Alexa controlled alarm system with an ESP32-CAM and a HC-SR501 PIR mo
 - It can call (mobile)phones via [AVM Fritzbox](https://en.avm.de/products/fritzbox/) TR-064 API (only on certain routers)
 - It can send e-mail notifications with a picture to your e-mail account
 - Last activation state is stored in EEPROM and restored after reboot (e.g. after a power loss)
-- Option: Integration of a [CCS811 air quality sensor](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#option-extended-version-with-additional-ccs811-air-qualiy-sensor)
+- Option: Integration of a [CCS811 air quality sensor](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/README.md#option-extended-version-with-additional-ccs811-air-quality-sensor)
 
 The alarm system is mainly created for Alexa integration, but it works also without Alexa. You can control it then via the web interface.
 
@@ -237,7 +237,7 @@ The description is detailled [here](https://github.com/AK-Homberger/Alexa-Alarm-
 # Code Details
 If you are interested in code details and explanations please read [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/CodeDetails.md) further.
 
-# Option: Extended Version with additional CCS811 Air Qualiy Sensor
+# Option: Extended Version with additional CCS811 Air Quality Sensor
 It is easy to extend the ESP32-CAM alarm system with an additional [CCS811](https://www.adafruit.com/product/3566) air quality sensor. 
 The extended programm is stored [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem-Sensor).
 An additional library (Adafruit_CCS811) has to be installed in the Arduino IDE.
