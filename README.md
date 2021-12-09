@@ -255,6 +255,7 @@ If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just cre
 The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor should first run permanently for about 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level over time. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a heat-up time of 20 minutes. The restore is maintained automatically in the code.
 
 But storing a new baseline is requested with an URL: **IP-address:90/set_baseline**
+
 According to the datasheet, storing of a new baseline should be done on a dayily basis during the first month and then on a monthly basis.
 The currently calculated baseline and the stored value is shown in the "uptime" request.
 
