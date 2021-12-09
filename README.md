@@ -240,9 +240,9 @@ If you are interested in code details and explanations please read [here](https:
 # Option: Extended Version with additional CCS811 Air Qualiy Sensor
 It is easy to extend the ESP32-CAM alarm system with an additional [CCS811](https://www.adafruit.com/product/3566) air quality sensor. 
 The extended programm is stored [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem-Sensor).
-An additionl library (Adafruit_CCS811) has to be istalled in the Arduino IDE.
+An additional library (Adafruit_CCS811) has to be installed in the Arduino IDE.
 
-The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin on the CCS811 has to be conneted to GND. 
+The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin on the CCS811 has to be connected to GND. 
 The sensor can be screwed on the backside of the housing.
 
 That's all. The air quality is shown in the web interface. 
@@ -250,9 +250,9 @@ That's all. The air quality is shown in the web interface.
 ![AirQuality](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/AirQuality.png)
 
 The internal LED will go on if a defined level (#define BAD_AIR 2300) is reached.
-If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just create an additinal URL trigger on the VSH web site and store the new URL in the code. Then add an Alexa notification routine in the Alexa App for the new trigger.
+If BAD_AIR + 200 is reached, an Alexa alarm notification can be played. Just create an additional URL trigger on the VSH web site and store the new URL in the code. Then add an Alexa notification routine in the Alexa App for the new trigger.
 
-The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor should first run permanently for 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level over time. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a heat-up time of 20 minutes. The restore is mainained automatically in the code.
+The CCS811 requires a special burn in time and baseline handling. According to the datasheet, the sensor should first run permanently for about 48 hours. After that time the sensor values should stabelize. The CCS811 maintains internally a beseline to calculate the good air level over time. The baseline should be saved regularly in non volatile memory and re-stored after a restart of the CCS811 sensor, but after a heat-up time of 20 minutes. The restore is maintained automatically in the code.
 
 But storing a new baseline is requested with an URL: "**IP-address:90/set_baseline**
 According to the datasheet, storing of a new baseline should be done on a dayily basis during the first month and then on a monthly basis.
