@@ -239,7 +239,7 @@ If you are interested in code details and explanations please read [here](https:
 
 # Option: Extended Version with additional CCS811 Air Quality Sensor
 It is easy to extend the ESP32-CAM alarm system with an additional [CCS811](https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor) air quality sensor. 
-The CCS811 sensor from AMS is a gas sensor that can detect a wide range of Volatile Organic Compounds (VOCs) and is intended for indoor air quality monitoring.
+The CCS811 sensor from AMS is a gas sensor that can detect a wide range of Volatile Organic Compounds (VOCs) and is intended for indoor air quality monitoring. I use here the eCO2 sensor value which is an eqivalent to the CO2 concentration. The sensor can't directly measure the CO2 concentration but it calculates internally the usual CO2 concentration in living rooms based on the concentration of other VOCs.
 
 The extended programm is stored [here](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem-Sensor).
 An additional library (Adafruit_CCS811) has to be installed in the Arduino IDE.
@@ -247,7 +247,7 @@ An additional library (Adafruit_CCS811) has to be installed in the Arduino IDE.
 The CCS811 is connected to 3,3V, GND, SDA (IO 14) and SCL (IO15). The WAKE-pin on the CCS811 has to be connected to GND. 
 The sensor can be screwed on the backside of the housing.
 
-That's all. The air quality is shown in the web interface. 
+That's all. The air quality (eCO2) is shown in the web interface. 
 
 ![AirQuality](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/Pictures/AirQuality.png)
 
