@@ -14,7 +14,7 @@
 // External Alarm Contact Sketch for ESP32-CAM Intruder Alert System
 // With ESP deep sleep and battery CR123 (3 Volt)
 
-// Version 1.0, 21.08.2021
+// Version 1.1, 30.01.2021
 
 // Set board to generic ESP8266
 
@@ -33,6 +33,7 @@
 // Connect ESP12 3,3V with USB Serial 3,3V only if no CR123 battery is inserted!!!
 
 #include <ESP8266WiFi.h>
+#include <WiFiClient.h>
 #include <ESP8266HTTPClient.h>
 
 // WLAN credentials
@@ -51,8 +52,9 @@ void setup() {
     if (i > 50) ESP.deepSleep(0);
   }
 
+  WiFiClient client;
   HTTPClient http;
-  http.begin("http://192.168.0.51:90/alarm_trigger?s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
+  http.begin(client, "http://192.168.0.51:90/alarm_trigger?s=Sensorname");  // Change IP to ESP32-CAM alarm system IP
   http.GET();
   http.end();
 
