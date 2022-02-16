@@ -20,7 +20,7 @@
 // - Can call phones via fritzbox TR-064 API
 // - Can send e-mail notifications with picture via gmail account
 //
-// Version 1.0 - 21.08.2021
+// Version 1.1 - 16.02.2022
 
 #include <Arduino.h>
 #include <esp_wifi.h>
@@ -567,7 +567,7 @@ void Handle_PIR_Sensor(void) {
       break;
 
     case WAIT_SECOND: // Check for double movement: State is WAIT_SECOND and PIR sensor high within 30 seconds.
-      if (PIR_On && millis() < double_time + 30000) {
+      if (PIR_On && millis() - double_time > 30000) {
         
         if (pir_sensor_active) {        // Sensor is active and double move detected
           capturePhotoSaveSpiffs();     // Store picture
@@ -580,7 +580,7 @@ void Handle_PIR_Sensor(void) {
         single_counter--;
         double_counter++;
         g_state = WAIT_LOW2;
-      } else if (millis() >= double_time + 30000 ) { // No second movement. Set state to WAIT_FIRST
+      } else if (millis() - double_time > 30000 ) { // No second movement. Set state to WAIT_FIRST
         Serial.println("Wrong alarm.");
         g_state = WAIT_FIRST;
       }
@@ -594,7 +594,7 @@ void Handle_PIR_Sensor(void) {
       break;
 
     case WAIT_DELAY:     // Wait 5 minutes after alarm. Then WAIT_DELAY to WAIT_FIRST
-      if (millis() > alarm_time + ALARM_WAIT) {
+      if (millis() - alarm_time > ALARM_WAIT) {
         Serial.println("Wait for first movement.");
         g_state = WAIT_FIRST;
       }
@@ -693,7 +693,7 @@ void CallPhone(void) {
 void handle_updates(void) {
 
   // Wait ARM_DELAY time after Alexa On command before armed
-  if (arm == true && millis() > arm_time + ARM_DELAY) {
+  if (arm == true && millis() - arm_time > ARM_DELAY) {
     pir_sensor_active = true;
     alarm_state = false;
     arm = false;
@@ -702,7 +702,7 @@ void handle_updates(void) {
   }
 
   // Alarm detected. Wait ALARM_DELAY time to allow disarm via Alexa or do notification
-  if (alarm_state && millis() > alarm_time + ALARM_DELAY) {
+  if (alarm_state && millis() - alarm_time > ALARM_DELAY) {
     Serial.println("Alarm.");
 
     if (CALL_PHONE) CallPhone();  // Call phone number
@@ -738,7 +738,7 @@ void loop() {
     handle_updates();
     client.poll();
 
-    if (millis() > picture_timer + (1000 / fps)) {      // Is it time to send next picture
+    if (millis() - picture_timer > (1000 / fps)) {      // Is it time to send next picture
       int current_fps = (1000.0 / (millis() - picture_timer)) + 0.5; // Calculate current fps rate
       if (current_fps > max_fps) max_fps = current_fps; // Set new max_fps
       picture_timer = millis();
