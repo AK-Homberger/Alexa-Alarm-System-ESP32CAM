@@ -290,7 +290,7 @@ OpenVPN will also work with an IPv4 router without a VPN solution integrated.
 - Option: CCS811 Air Quality Sensor [Link](https://www.reichelt.de/de/en/developer-boards-air-quality-sensor-ccs811-debo-sens-ccs811-p253655.html?&nbc=1)
 
 # Updates:
-- 16.02.21: Version 1.1: Avoid millis() rollover problem.
+- 16.02.21: Version 1.1: Avoid millis() rollover problem (which occurs every 50 days).
 - 26.11.21: Version 1.1: Store picture to SPIFFS only when active. 
 - 21.08.21: Version 1.0: Initial version.
 
