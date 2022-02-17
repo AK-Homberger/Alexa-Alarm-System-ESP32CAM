@@ -626,7 +626,7 @@ void Handle_PIR_Sensor(void) {
       break;
 
     case WAIT_SECOND: // Check for double movement: State is WAIT_SECOND and PIR sensor high within 30 seconds.
-      if (PIR_On && millis() - double_time > 30000) {
+      if (PIR_On && millis() - double_time < 30000) {
 
         if (pir_sensor_active) {        // Sensor is active and double move detected
           capturePhotoSaveSpiffs();     // Store picture
@@ -639,7 +639,7 @@ void Handle_PIR_Sensor(void) {
         single_counter--;
         double_counter++;
         g_state = WAIT_LOW2;
-      } else if (millis() - double_time > 30000 ) { // No second movement. Set state to WAIT_FIRST
+      } else if (millis() - double_time >= 30000 ) { // No second movement. Set state to WAIT_FIRST
         Serial.println("Wrong alarm.");
         g_state = WAIT_FIRST;
       }
