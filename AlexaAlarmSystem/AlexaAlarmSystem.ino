@@ -20,7 +20,7 @@
 // - Can call phones via fritzbox TR-064 API
 // - Can send e-mail notifications with picture via gmail account
 //
-// Version 1.1 - 16.02.2022
+// Version 1.2 - 16.02.2022
 
 #include <Arduino.h>
 #include <esp_wifi.h>
