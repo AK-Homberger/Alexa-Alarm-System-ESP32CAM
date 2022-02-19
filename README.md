@@ -89,7 +89,11 @@ A setting to 60 = 15dbM was sufficient for my system to nearly avoid any false p
 A nice 3D print housing can be found [here](https://www.thingiverse.com/thing:4029564) at Thingiverse.
 
 # Software
-The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested). To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". Then open "Tools -> Board: -> Boards Manager..." and put "esp32" in search field and press Install.
+The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/main/AlexaAlarmSystem) is created to be used within the Arduino IDE (tested with version 1.8.15). For the ESP32-CAM, the ESP32 board support has to be installed in the IDE (version 1.0.6 is tested). 
+
+To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". Then open "Tools -> Board: -> Boards Manager..." and put "esp32" in search field and press Install.
+
+ESP32 version 2.x.x is compiling with warnings and it seems that the EMailSender Library has problems witih the updated version (emails not sent).
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
