@@ -93,7 +93,7 @@ The [software](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/tree/
 
 To install the board add "https://dl.espressif.com/dl/package_esp32_index.json" to "Menue: File -> Preferences -> Additional Boards Manager URLs". Then open "Tools -> Board: -> Boards Manager..." and put "esp32" in search field and press Install.
 
-ESP32 version 2.x.x is compiling with warnings and it seems that the EMailSender Library has problems witih the updated version (emails not sent).
+**ESP32 version 2.x.x is compiling with warnings and it seems that the EMailSender Library has problems witih the updated version (emails not sent).**
 
 In the IDE you have to select:
 - Board: ESP32 Wrover Module
