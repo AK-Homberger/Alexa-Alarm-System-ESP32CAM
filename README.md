@@ -120,7 +120,7 @@ Then press the "RST" button on the ESP32-CAM. After that, you can start the uplo
 
 For normal start open IO0 from GND and press "RST" again.
 
-After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "RST" button after the OTA process is finished, to start the sketch.
+After the initial sketch upload via USB (and after setting the right WLAN credentials), you can also do "Over the Air" uploads via WLAN. The OTA device name is set to "AlarmSystem". Sometimes it is necesssary to press the "RST" button after the OTA process is finished, to start the sketch. Alternatively you can disconnect the power for a few seconds if ESP32CAM is hidden in the housing.
 
 After uploading the sketch to the ESP32-CAM you can start the device detection with Alexa (use "Other devices" not "Philips Hue").
 
