@@ -208,9 +208,9 @@ Use the JSON variant (short response). But all three variants will work.
 ## Certificate Updates
 For security reasons the [Root CA certificate](https://github.com/AK-Homberger/Alexa-Alarm-System-ESP32CAM/blob/main/AlexaAlarmSystem/certificate.h) is stored in the code (certificate.h). The certificate is used to authenticate the identity of the web server. 
 
-**The old root certificate "DST Root CA X3" has expired end of September 2021**. It has to be updated after that time. 
+**The old root certificate "DST Root CA X3" has expired end of September 2021**. 
 
-According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/), the issuer of the Virtualsmarthome.xyz certificate, it is be necessary to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem and is valid until year 2035. 
+According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/), the issuer of the Virtualsmarthome.xyz certificate, it is necessary to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem and is valid until year 2035. 
 
 The current code is already using the new Root CA certificate and the program is working well with it. 
 
