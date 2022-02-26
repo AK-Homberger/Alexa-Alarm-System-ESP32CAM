@@ -214,8 +214,6 @@ To perform the update (with Firefox browser) just go to the https://www.virtuals
 
 According To [Let's Encrypt](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/), the issuer of the Virtualsmarthome.xyz certificate, it might be necessary to use the new "ISRG Root X1" certificate instead. The certificate is available here: https://letsencrypt.org/certs/isrgrootx1.pem and is valid until year 2035. The current code is already using the new Root CA certificate and the program is working well with it. 
 
-But I will monitor the situation end of Sptember/November 2021 anyway and do necessary changes in the code.
-
 ## Create Alexa Routines
 In the Alexa App you can then create two routines. One is the routine for alarm activities (play sound, speak text etc.). And the second is a notification tone, as a reminder to disarm the alarm system when coming back home. There is 15 seconds alarm delay until the alarm is raised.
 
